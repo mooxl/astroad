@@ -12,6 +12,6 @@ export default buildConfig({
   },
   collections: [Categories, Posts, Tags, Users],
   typescript: {
-    outputFile: path.resolve("../", "types.ts"),
+    outputFile: path.resolve("/", "types.ts"),
   },
 });

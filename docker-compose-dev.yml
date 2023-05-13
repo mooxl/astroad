@@ -1,0 +1,24 @@
+services:
+  astro:
+    build:
+      context: astro
+      target: dev
+    volumes:
+      - ./astro/src:/base/src
+      - .env.development:/base/.env.development
+    ports:
+      - 3000:3000
+
+  payload:
+    build:
+      context: payload
+      target: dev
+    volumes:
+      - ./payload/src:/base/src
+      - ./astro/src/types.ts:/types.ts
+    ports:
+      - 3001:3001
+
+  mongo:
+    ports:
+      - 27017:27017

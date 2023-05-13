@@ -1,14 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import type { Post } from '../../../types';
+import type { Post } from '../types';
 
-const posts: Post[] = (await(await fetch("http://localhost:3001/api/posts")).json()).docs;
+const posts: Post[] = (await(await fetch("http://payload:3001/api/posts")).json()).docs;
 posts.forEach(post=> console.log(post.title));
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
+		{posts.reverse().map(post => (
+			<article>
+				<h2>{post.title}</h2>
+				<p>{post.updatedAt}</p>
+			</article>
+		))}
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />

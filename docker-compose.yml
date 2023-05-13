@@ -1,9 +1,11 @@
 services:
   astro:
-    build:
-      context: ./astro
-      dockerfile: Dockerfile
+    container_name: ${NAME}-astro
+    restart: unless-stopped
+
   payload:
+    container_name: ${NAME}_cms
+    restart: unless-stopped
     build:
       context: ./payload
       dockerfile: Dockerfile
@@ -12,7 +14,6 @@ services:
     environment:
       MONGODB_URI: ${MONGODB_URI}
       PORT: ${PAYLOAD_PORT}
-      NODE_ENV: ${NODE_ENV}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
   mongo:
     image: mongo:6.0.5
@@ -23,5 +24,3 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PW}
-    ports:
-      - 27017:27017

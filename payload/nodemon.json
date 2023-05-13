@@ -1,4 +1,4 @@
 {
   "ext": "ts",
-  "exec": "ts-node src/server.ts"
+  "exec": "yarn generate:types && ts-node src/server.ts"
 }

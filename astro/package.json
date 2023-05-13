@@ -3,11 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "astro dev --host",
+    "build": "astro build"
   },
   "dependencies": {
     "astro": "^2.4.1"
