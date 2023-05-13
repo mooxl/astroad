@@ -1,0 +1,27 @@
+services:
+  astro:
+    build:
+      context: ./astro
+      dockerfile: Dockerfile
+  payload:
+    build:
+      context: ./payload
+      dockerfile: Dockerfile
+    volumes:
+      - ./data/media:/app/dist/media
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+      PORT: ${PAYLOAD_PORT}
+      NODE_ENV: ${NODE_ENV}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+  mongo:
+    image: mongo:6.0.5
+    volumes:
+      - ./data/mongo:/data/db
+    command:
+      - --storageEngine=wiredTiger
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PW}
+    ports:
+      - 27017:27017
