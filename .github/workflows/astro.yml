@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 env:
-  BUILD_PATH: "astro"
+  BUILD_PATH: "./astro"
 
 jobs:
   build:
@@ -60,4 +60,3 @@ jobs:
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
-     
