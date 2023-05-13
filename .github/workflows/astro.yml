@@ -9,14 +9,11 @@ jobs:
     name: Run remote SSH command
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Execute remote SSH commands
+      - name: Trigger build via ssh
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            mkdir hallo
+            ls
