@@ -1,28 +1,23 @@
-name: Deploy Astro site
-
+name: Trigger Astro build on server
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-env:
-  BUILD_PATH: "./astro"
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build
+    name: Run remote SSH command
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Execute remote SSH commands
+        uses: appleboy/ssh-action@master
         with:
-          node-version: "16"
-      - name: Install dependencies
-        run: yarn install
-        working-directory: ${{ env.BUILD_PATH }}
-      - name: Build with Astro
-        run: |
-          yarn astro build
-        working-directory: ${{ env.BUILD_PATH }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          script: |
+            mkdir hallo
