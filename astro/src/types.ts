@@ -7,24 +7,16 @@
 
 export interface Config {
   collections: {
-    categories: Category;
     posts: Post;
-    tags: Tag;
     users: User;
+    media: Media;
   };
   globals: {};
-}
-export interface Category {
-  id: string;
-  name?: string;
 }
 export interface Post {
   id: string;
   title?: string;
-  author?: string | User;
   publishedDate?: string;
-  category?: string | Category;
-  tags?: string[] | Tag[];
   content?: {
     [k: string]: unknown;
   }[];
@@ -44,7 +36,14 @@ export interface User {
   lockUntil?: string;
   password?: string;
 }
-export interface Tag {
+export interface Media {
   id: string;
-  name?: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
 }
