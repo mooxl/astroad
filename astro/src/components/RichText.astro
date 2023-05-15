@@ -9,7 +9,7 @@ const contentArray = getContentArray(content);
   {
     contentArray.map((value) => {
       if (typeof value === "string") {
-        return <div set:html={value} />;
+        return <article set:html={value} />;
       } else {
         return (
           <Image

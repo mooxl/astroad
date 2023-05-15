@@ -1,8 +1,4 @@
-import {
-  payloadSlateToDomConfig,
-  SlateToDomConfig,
-  slateToHtml,
-} from "slate-serializers";
+import { payloadSlateToDomConfig, slateToHtml } from "slate-serializers";
 import { Element } from "domhandler";
 
 export const getContentArray = (content: any) => {

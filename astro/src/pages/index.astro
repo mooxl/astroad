@@ -1,11 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import type { Post } from "../types";
+import { getPosts } from "../utils/payload";
 
-const posts: Post[] = (
-  await (await fetch("http://payload:3001/api/posts")).json()
-).docs;
-posts.forEach((post) => console.log(post.title));
+const posts = await getPosts();
 ---
 
 <Layout title="Welcome to Astroad">
