@@ -1,13 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { Element } from "domhandler";
 import type { Post } from "../../types";
-import { Image } from "@astrojs/image/components";
-import {
-  slateToHtml,
-  payloadSlateToDomConfig,
-  SlateToDomConfig,
-} from "slate-serializers";
+
+import RichText from "../../components/RichText.astro";
 export async function getStaticPaths() {
   const paths = (
     await (await fetch("http://payload:3001/api/posts")).json()
@@ -20,74 +15,12 @@ const { id } = Astro.params;
 const post = (await (
   await fetch(`http://payload:3001/api/posts/${id}`)
 ).json()) as Post;
-const test: SlateToDomConfig = {
-  ...payloadSlateToDomConfig,
-  elementTransforms: {
-    ...payloadSlateToDomConfig.elementTransforms,
-    upload: ({ node }) =>
-      new Element("img", {
-        src: node.value.filename,
-        width: `${node.value.width}`,
-        height: `${node.value.height}`,
-      }),
-  },
-};
-
-const html = slateToHtml(post.content!, test).replaceAll(
-  "<p></p>",
-  "<p>&nbsp;</p>"
-);
-
-const htmlImageArray: (
-  | string
-  | { src: string; width: number; height: number }
-)[] = [];
-let lastIndex = 0;
-while (true) {
-  const imgStartIndex = html.indexOf("<img", lastIndex);
-  if (imgStartIndex === -1) {
-    htmlImageArray.push(html.substring(lastIndex));
-    break;
-  }
-  const imgEndIndex = html.indexOf(">", imgStartIndex) + 1;
-  const imgTag = html.substring(imgStartIndex, imgEndIndex);
-  const remainingHtml = html.substring(lastIndex, imgStartIndex);
-  const imgObject = {
-    src: imgTag.match(/src="(.*?)"/)![1],
-    width: +imgTag.match(/width="(.*?)"/)![1],
-    height: +imgTag.match(/height="(.*?)"/)![1],
-  };
-  htmlImageArray.push(remainingHtml, imgObject);
-  lastIndex = imgEndIndex;
-}
-console.log(htmlImageArray);
 ---
 
 <Layout title={post.title!}>
-  <h1>{id}</h1>
-  {
-    htmlImageArray.map((value) => {
-      if (typeof value === "string") {
-        return <div set:html={value} class="whitespace-pre-wrap" />;
-      } else {
-        return (
-          <Image
-            src={`http://payload:3001/media/${value.src}`}
-            width={value.width}
-            height={value.height}
-            format="webp"
-            alt="hallo"
-          />
-        );
-      }
-    })
-  }
+  <div class="max-w-3xl mx-auto space-y-3 my-3">
+    <a href="/">BACK</a>
+    <h1>{post.title}</h1>
+    {post.content && <RichText content={post.content} />}
+  </div>
 </Layout>
-<style>
-  p:empty {
-    display: block;
-    content: "\00a0";
-    margin: 0;
-    padding: 0;
-  }
-</style>

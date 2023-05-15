@@ -1,0 +1,26 @@
+---
+import { Image } from "@astrojs/image/components";
+import { getContentArray } from "../utils/helpers";
+const { content } = Astro.props;
+const contentArray = getContentArray(content);
+---
+
+<div>
+  {
+    contentArray.map((value) => {
+      if (typeof value === "string") {
+        return <div set:html={value} />;
+      } else {
+        return (
+          <Image
+            src={`http://payload:3001/media/${value.src}`}
+            width={value.width}
+            height={value.height}
+            format="webp"
+            alt="hallo"
+          />
+        );
+      }
+    })
+  }
+</div>
