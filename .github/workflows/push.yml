@@ -8,6 +8,16 @@ jobs:
     name: Run remote SSH command
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install dotenv
+      - name: Load environment variables from .env file
+        run: |
+          source .env.prod
+      - name: Print environment variable
+        run: echo $PAYLOAD_URL
+
       - name: Trigger build via ssh
         uses: appleboy/ssh-action@master
         with:
