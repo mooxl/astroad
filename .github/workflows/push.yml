@@ -16,7 +16,7 @@ jobs:
         run: |
           source .env.prod
       - name: Print environment variable
-        run: echo $PAYLOAD_URL
+        run: echo ${PAYLOAD_URL}
 
       - name: Trigger build via ssh
         uses: appleboy/ssh-action@master
