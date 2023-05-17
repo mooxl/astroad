@@ -25,4 +25,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            echo ${{ secrets.HOST }}
+            echo ${{ PAYLOAD_URL }}
+            echo ${PAYLOAD_URL}
+            echo $PAYLOAD_URL
