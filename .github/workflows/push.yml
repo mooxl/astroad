@@ -2,7 +2,7 @@ name: Clone or pull repository
 on:
   push:
     branches:
-      - prod
+      - main
 jobs:
   build:
     name: Run remote SSH command
@@ -21,7 +21,7 @@ jobs:
             else
               mkdir ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
-              git clone -b prod https://github.com/${{ github.repository }} .
+              git clone https://github.com/${{ github.repository }} .
               sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ vars.ASTRO_URL }}/" .env
               sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ vars.PAYLOAD_URL }}/" .env
               sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env
@@ -33,5 +33,5 @@ jobs:
               cp .env ./astro/.env
             fi
             yarn prod payload
-            sleep 30
+            sleep 10
             yarn prod astro
