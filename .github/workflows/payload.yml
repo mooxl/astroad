@@ -1,8 +1,5 @@
 name: Trigger Astro build on server
 on:
-  push:
-    branches:
-      - main
   repository_dispatch:
     types: [payload_update]
 jobs:

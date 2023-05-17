@@ -14,4 +14,4 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            ls
+            echo ${{ secrets.HOST }}
