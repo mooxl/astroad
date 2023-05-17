@@ -32,4 +32,6 @@ jobs:
               sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env
               cp .env ./astro/.env
             fi
-            yarn prod
+            yarn prod payload
+            sleep 30
+            yarn prod astro
