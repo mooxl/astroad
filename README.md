@@ -20,10 +20,9 @@ The `docker-compose.yml` and `docker-compose-dev.yml` files includes everything 
 
 ## Deployment
 
-When you're ready to deploy your website to a production environment, you'll should copy the `.env.dev` and rename it into `.env.prod`. Then you modify the file to suit your needs. This file contains the configuration for the Astro, Payload, Mongo, GitHub Workflow and Traefik.
-
 Deployment is handled by a Github Actions Workflow on every push on branch `prod`. It logs into the server via SSH, pulls or clones the latest version of the repository, and runs `yarn prod`.
-
-Because Astro is completely static, a content change in the CMS must trigger a new build of Astro. Therefore, there's a `payload.yml` workflow that gets triggered by a webhook after every content change from Payload.
+Because Astro is completely static, a content change in the CMS must trigger a new build of Astro. Therefore, there’s a `payload.yml` workflow that gets triggered by a webhook after every content change from Payload.
 
 Ensure you have Traefik set up as a reverse proxy before deployment. The prod script will launch your site in a production-ready environment.
+
+Please note that since deployment is done through Github Workflows, you need to define the necessary secrets and envs in the settings. You can find which secrets and envs are used in the `.github/workflows/push.yml` file. This file converts the existing `.env.dev` to `.env.prod` and adds the secrets and envs that have already been defined.

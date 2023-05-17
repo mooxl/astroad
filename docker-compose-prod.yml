@@ -5,16 +5,43 @@ services:
       target: prod
     environment:
       PAYLOAD_URL: ${PAYLOAD_URL}
-    ports:
-      - 3000:3000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_URL}`)"
+      - "traefik.http.routers.${NAME}-astro.entrypoints=https"
+      - "traefik.http.routers.${NAME}-astro.tls.certresolver=httpresolver"
+      - "traefik.http.routers.${NAME}-astro.middlewares=security-headers-${NAME}-astro"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.accesscontrolallowmethods=GET, OPTIONS, PUT, POST, DELETE, HEAD, PATCH"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.accesscontrolmaxage=100"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.addvaryheader=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.hostsproxyheaders=X-Forwarded-Host"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.sslredirect=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.sslproxyheaders.X-Forwarded-Proto=https"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.stsseconds=63072000"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.stsincludesubdomains=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.stspreload=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.forcestsheader=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.permissionspolicy=camera=(), accelerometer=(), gamepad=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=()"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.framedeny=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.contentsecuritypolicy=default-src 'none'; connect-src 'self'; font-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' data:; style-src 'self' 'unsafe-inline'"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.contenttypenosniff=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.browserxssfilter=true"
+      - "traefik.http.middlewares.security-headers-${NAME}-astro.headers.referrerpolicy=same-origin"
+      - traefik.docker.network=traefik_network
+    networks:
+      - traefik_network
 
   payload:
     build:
       context: payload
       target: prod
-    ports:
-      - 3001:3001
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_URL}`)
+      - traefik.http.routers.${NAME}-payload.entrypoints=https
+      - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
+      - traefik.docker.network=traefik_network
 
-  mongo:
-    ports:
-      - 27017:27017
+networks:
+  traefik_network:
+    external: true
