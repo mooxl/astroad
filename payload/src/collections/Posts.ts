@@ -14,6 +14,7 @@ const Posts: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
+        console.log("HALLO");
         await fetch("https://api.github.com/repos/mooxl/astroad/dispatches", {
           method: "POST",
           headers: {
