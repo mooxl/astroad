@@ -1,9 +1,9 @@
 import type { Post } from "../types";
 
 const url =
-  process.env.NODE_ENV === "development"
+  import.meta.env.NODE_ENV === "development"
     ? "http://payload:3001"
-    : `https://${process.env.PAYLOAD_URL}`;
+    : `https://${import.meta.env.PAYLOAD_URL}`;
 
 export const getPosts = async () =>
   (await (await fetch(`${url}/api/posts`)).json()).docs as Post[];
