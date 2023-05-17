@@ -14,4 +14,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            ls
+            if [ -d ${{ secrets.PATH }} ]; then
+              echo "Directory exists"
+            else
+              echo "Directory does not exist"
+            fi
