@@ -15,16 +15,20 @@ const Posts: CollectionConfig = {
     afterChange: [
       async () => {
         console.log("HALLO");
-        await fetch("https://api.github.com/repos/mooxl/astroad/dispatches", {
-          method: "POST",
-          headers: {
-            Accept: "application/vnd.github.everest-preview+json",
-            Authorization: "token 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",
-          },
-          body: JSON.stringify({
-            event_type: "payload_update",
-          }),
-        });
+        try {
+          await fetch("https://api.github.com/repos/mooxl/astroad/dispatches", {
+            method: "POST",
+            headers: {
+              Accept: "application/vnd.github.everest-preview+json",
+              Authorization: "token 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",
+            },
+            body: JSON.stringify({
+              event_type: "payload_update",
+            }),
+          });
+        } catch (e) {
+          console.log(e);
+        }
       },
     ],
   },
