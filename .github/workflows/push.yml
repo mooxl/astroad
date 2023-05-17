@@ -23,13 +23,13 @@ jobs:
               cd ${{ secrets.PATH }}
               git clone -b prod https://github.com/${{ github.repository }} .
               mv .env.dev .env.prod
-              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ env.ASTRO_URL }}/" .env.prod
-              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ env.PAYLOAD_URL }}/" .env.prod
+              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ vars.ASTRO_URL }}/" .env.prod
+              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ vars.PAYLOAD_URL }}/" .env.prod
               sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env.prod
               sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}/" .env.prod
               sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env.prod
               sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env.prod
               sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env.prod
-              sed -i "s/NAME=.*/NAME=${{ env.NAME }}/" .env.prod
+              sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env.prod
             fi
             yarn prod
