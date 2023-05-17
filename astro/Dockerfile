@@ -13,9 +13,8 @@ FROM base AS build
 ENV NODE_ENV=production
 WORKDIR /build
 COPY --from=base /base ./
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
 RUN yarn build
 
 FROM nginx:stable AS prod
 COPY --from=build /build/dist /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 3000

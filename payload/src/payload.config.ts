@@ -5,7 +5,7 @@ import Users from "./collections/Users";
 import Media from "./collections/Media";
 
 export default buildConfig({
-  serverURL: "http://localhost:3001",
+  serverURL: process.env.PAYLOAD_URL,
   admin: {
     user: Users.slug,
   },

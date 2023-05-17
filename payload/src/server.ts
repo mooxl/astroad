@@ -21,4 +21,4 @@ payload.init({
 
 // Add your own express routes here
 
-app.listen(3001);
+app.listen(process.env.PAYLOAD_PORT);

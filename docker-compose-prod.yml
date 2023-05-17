@@ -1,0 +1,18 @@
+services:
+  astro:
+    build:
+      context: astro
+      target: prod
+    ports:
+      - 3000:3000
+
+  payload:
+    build:
+      context: payload
+      target: prod
+    ports:
+      - 3001:3001
+
+  mongo:
+    ports:
+      - 27017:27017

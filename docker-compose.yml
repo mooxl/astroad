@@ -2,9 +2,13 @@ services:
   astro:
     container_name: ${NAME}-astro
     restart: unless-stopped
+    networks:
+      - hallo
+    depends_on:
+      - payload
 
   payload:
-    container_name: ${NAME}_cms
+    container_name: ${NAME}_payload
     restart: unless-stopped
     build:
       context: ./payload
@@ -12,10 +16,17 @@ services:
     volumes:
       - ./data/media:/app/dist/media
     environment:
-      MONGODB_URI: ${MONGODB_URI}
       PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      MONGODB_URI: ${MONGODB_URI}
+    networks:
+      - hallo
+      - test
+    depends_on:
+      - mongo
+
   mongo:
+    container_name: ${NAME}_mongo
     image: mongo:6.0.5
     volumes:
       - ./data/mongo:/data/db
@@ -24,3 +35,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PW}
+    networks:
+      - test
+
+networks:
+  hallo:
+  test:
