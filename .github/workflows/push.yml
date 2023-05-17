@@ -22,14 +22,14 @@ jobs:
               mkdir ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
               git clone -b prod https://github.com/${{ github.repository }} .
-              mv .env.dev .env.prod
-              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ vars.ASTRO_URL }}/" .env.prod
-              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ vars.PAYLOAD_URL }}/" .env.prod
-              sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env.prod
-              sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}/" .env.prod
-              sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env.prod
-              sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env.prod
-              sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env.prod
-              sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env.prod
+              cp .env ./astro/.env
+              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ vars.ASTRO_URL }}/" .env
+              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ vars.PAYLOAD_URL }}/" .env
+              sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env
+              sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}/" .env
+              sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env
+              sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env
+              sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env
+              sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env
             fi
             yarn prod

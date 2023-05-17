@@ -25,4 +25,4 @@ Because Astro is completely static, a content change in the CMS must trigger a n
 
 Ensure you have Traefik set up as a reverse proxy before deployment. The prod script will launch your site in a production-ready environment.
 
-Please note that since deployment is done through Github Workflows, you need to define the necessary secrets and envs in the settings. You can find which secrets and envs are used in the `.github/workflows/push.yml` file. This file converts the existing `.env.dev` to `.env.prod` and adds the secrets and envs that have already been defined.
+Please note that since deployment is done through Github Workflows, you need to define the necessary secrets and envs in the settings. You can find which secrets and envs are used in the `.github/workflows/push.yml` file. This file adds the secrets and envs to the `.env` that have already been defined.

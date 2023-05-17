@@ -2,9 +2,8 @@
   "name": "astrotus",
   "license": "MIT",
   "scripts": {
-    "dev": "docker compose -f docker-compose.yml -f docker-compose-dev.yml --env-file .env.dev up -d",
-    "prod": "docker compose -f docker-compose.yml -f docker-compose-prod.yml --env-file .env.prod up -d --build",
-    "stop": "docker compose -f docker-compose.yml -f docker-compose-dev.yml --env-file .env.dev down && docker compose -f docker-compose.yml -f docker-compose-prod.yml --env-file .env.prod down",
-    "dump": "docker exec -i astrotus_database /bin/sh -c 'PGPASSWORD=password pg_dump --username directus directus' > ./dump.sql"
+    "dev": "docker compose -f docker-compose.yml -f docker-compose-dev.yml  up -d",
+    "prod": "docker compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build",
+    "stop": "docker compose -f docker-compose.yml -f docker-compose-dev.yml down && docker compose -f docker-compose.yml -f docker-compose-prod.yml down"
   }
 }
