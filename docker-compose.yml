@@ -21,6 +21,7 @@ services:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       MONGODB_URI: ${MONGODB_URI}
       PAYLOAD_URL: ${PAYLOAD_URL}
+      TOKEN: ${TOKEN}
     networks:
       - front
       - back
