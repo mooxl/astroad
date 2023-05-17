@@ -14,6 +14,7 @@ const Posts: CollectionConfig = {
     afterChange: [
       async () => {
         console.log(process.env.TOKEN);
+
         try {
           console.log(
             await fetch(
