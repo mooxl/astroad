@@ -1,7 +1,8 @@
 name: Clone or pull repository
 on:
-  branches:
-    - prod
+  push:
+    branches:
+      - prod
 jobs:
   build:
     name: Run remote SSH command
@@ -14,4 +15,4 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            ls
+            echo ${{ secrets.HOST }}
