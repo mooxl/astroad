@@ -1,17 +1,17 @@
 services:
   astro:
     build:
-      context: astro
       target: dev
     volumes:
       - ./astro/src:/base/src
-      - .env.development:/base/.env.development
+      - ./astro/public:/base/public
+      - ./astro/astro.config.mjs:/base/astro.config.mjs
+      - ./astro/tailwind.config.cjs:/base/tailwind.config.cjs
     ports:
       - 3000:3000
 
   payload:
     build:
-      context: payload
       target: dev
     volumes:
       - ./payload/src:/base/src

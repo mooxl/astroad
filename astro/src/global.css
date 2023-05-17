@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Plex";
+  src: url("/fonts/Plex-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex";
+  src: url("/fonts/Plex-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 h1 {
-  @apply text-4xl;
+  @apply text-6xl font-bold;
+}
+h2 {
+  @apply text-4xl font-bold;
+}
+h3 {
+  @apply text-xl font-bold;
 }

@@ -18,8 +18,8 @@ const post = id && (await getPost(id));
 
 {
   post ? (
-    <Layout title={post.title!}>
-      <div class="max-w-3xl mx-auto space-y-3 my-3">
+    <Layout title={`Astroad | ${post.title!}`}>
+      <div class="space-y-3 my-3">
         <a href="/">BACK</a>
         <h1>{post.title}</h1>
         {post.content && <Content content={post.content} />}
