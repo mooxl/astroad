@@ -17,5 +17,7 @@ jobs:
             if [ -d ${{ secrets.PATH }} ]; then
               echo "Directory exists"
             else
-              echo "Directory does not exist"
+              mkdir ${{ secrets.PATH }}
+              cd ${{ secrets.PATH }}
+              git clone https://github.com/mooxl/astroad
             fi
