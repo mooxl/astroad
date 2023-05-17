@@ -3,6 +3,8 @@ services:
     build:
       context: astro
       target: prod
+    environment:
+      PAYLOAD_URL: ${PAYLOAD_URL}
     ports:
       - 3000:3000
 
