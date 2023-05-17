@@ -41,6 +41,8 @@ services:
       - traefik.http.routers.${NAME}-payload.entrypoints=https
       - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
       - traefik.docker.network=traefik_network
+    networks:
+      - traefik_network
 
 networks:
   traefik_network:

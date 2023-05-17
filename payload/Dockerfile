@@ -23,5 +23,5 @@ COPY package*.json  .
 RUN yarn install --production
 COPY --from=build /build/dist ./dist
 COPY --from=build /build/build ./build
-EXPOSE 3001
+EXPOSE 3000
 CMD ["yarn", "serve"]
