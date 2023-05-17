@@ -15,9 +15,10 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             if [ -d ${{ secrets.PATH }} ]; then
-              echo "Directory exists"
+              cd ${{ secrets.PATH }}
+              git pull
             else
               mkdir ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
-              git clone https://github.com/mooxl/astroad
+              git clone -b prod https://github.com/mooxl/astroad .
             fi
