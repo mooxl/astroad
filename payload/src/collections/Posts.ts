@@ -13,6 +13,7 @@ const Posts: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
+        console.log("HALLO");
         try {
           console.log(
             await fetch(
@@ -21,8 +22,7 @@ const Posts: CollectionConfig = {
                 method: "POST",
                 headers: {
                   Accept: "application/vnd.github.everest-preview+json",
-                  Authorization:
-                    "token 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",
+                  Authorization: `token ${process.env.TOKEN}`,
                 },
                 body: JSON.stringify({
                   event_type: "payload_update",

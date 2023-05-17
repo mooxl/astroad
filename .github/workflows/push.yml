@@ -29,6 +29,7 @@ jobs:
               sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env
               sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env
               sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env
+              sed -i "s/TOKEN=.*/TOKEN=${{ secrets.TOKEN }}/" .env
               sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env
               cp .env ./astro/.env
             fi
