@@ -1,34 +1,18 @@
-name: Trigger Astro build on server
+name: Payload update
 on:
   repository_dispatch:
     types: [payload_update]
 jobs:
   build:
-    name: Run remote SSH command
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger build via ssh
+      - name: Trigger build
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            if [ -d ${{ secrets.PATH }} ]; then
-              cd ${{ secrets.PATH }}
-              git pull
-            else
-              mkdir ${{ secrets.PATH }}
-              cd ${{ secrets.PATH }}
-              git clone -b prod ${{ github.repository }} .
-              mv .env.dev .env.prod
-              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ ASTRO_URL }}/" .env.prod
-              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ PAYLOAD_URL }}/" .env.prod
-              sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ PAYLOAD_PORT }}/" .env.prod
-              sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ PAYLOAD_SECRET }}/" .env.prod
-              sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ MONGODB_URI }}/" .env.prod
-              sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ MONGODB_USER }}/" .env.prod
-              sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ MONGODB_PW }}/" .env.prod
-              sed -i "s/MONGODB_DB=.*/MONGODB_DB=${{ MONGODB_DB }}/" .env.prod
-              sed -i "s/NAME=.*/NAME=${{ NAME }}/" .env.prod
-            fi
+            cd ${{ secrets.PATH }}
+            git pull
+            yarn prod astro

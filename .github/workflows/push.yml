@@ -8,16 +8,6 @@ jobs:
     name: Run remote SSH command
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install dotenv
-      - name: Load environment variables from .env file
-        run: |
-          source .env.prod
-      - name: Print environment variable
-        run: echo ${PAYLOAD_URL}
-
       - name: Trigger build via ssh
         uses: appleboy/ssh-action@master
         with:
@@ -25,6 +15,21 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           script: |
-            echo ${{ PAYLOAD_URL }}
-            echo ${PAYLOAD_URL}
-            echo $PAYLOAD_URL
+            if [ -d ${{ secrets.PATH }} ]; then
+              cd ${{ secrets.PATH }}
+              git pull
+            else
+              mkdir ${{ secrets.PATH }}
+              cd ${{ secrets.PATH }}
+              git clone -b prod ${{ github.repository }} .
+              mv .env.dev .env.prod
+              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ env.ASTRO_URL }}/" .env.prod
+              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ env.PAYLOAD_URL }}/" .env.prod
+              sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env.prod
+              sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}/" .env.prod
+              sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env.prod
+              sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env.prod
+              sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env.prod
+              sed -i "s/NAME=.*/NAME=${{ env.NAME }}/" .env.prod
+            fi
+            yarn prod
