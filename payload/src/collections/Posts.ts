@@ -1,5 +1,4 @@
 import { CollectionConfig } from "payload/types";
-import fetch from "node-fetch";
 const Posts: CollectionConfig = {
   slug: "posts",
   admin: {
@@ -14,18 +13,23 @@ const Posts: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
-        console.log("HALLO");
         try {
-          await fetch("https://api.github.com/repos/mooxl/astroad/dispatches", {
-            method: "POST",
-            headers: {
-              Accept: "application/vnd.github.everest-preview+json",
-              Authorization: "token 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",
-            },
-            body: JSON.stringify({
-              event_type: "payload_update",
-            }),
-          });
+          console.log(
+            await fetch(
+              "https://api.github.com/repos/mooxl/astroad/dispatches",
+              {
+                method: "POST",
+                headers: {
+                  Accept: "application/vnd.github.everest-preview+json",
+                  Authorization:
+                    "token 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",
+                },
+                body: JSON.stringify({
+                  event_type: "payload_update",
+                }),
+              }
+            )
+          );
         } catch (e) {
           console.log(e);
         }
