@@ -1,5 +1,5 @@
 import { CollectionConfig } from "payload/types";
-
+import fetch from "node-fetch";
 const Posts: CollectionConfig = {
   slug: "posts",
   admin: {
