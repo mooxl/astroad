@@ -21,8 +21,7 @@ jobs:
             else
               mkdir ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
-              git clone -b prod ${{ github.repository }} .
-              sleep 10
+              git clone -b prod https://github.com/${{ github.repository }} .
               mv .env.dev .env.prod
               sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ env.ASTRO_URL }}/" .env.prod
               sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ env.PAYLOAD_URL }}/" .env.prod
