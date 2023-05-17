@@ -13,7 +13,7 @@ const Posts: CollectionConfig = {
   hooks: {
     afterChange: [
       async () => {
-        console.log("HALLO");
+        console.log(process.env.TOKEN);
         try {
           console.log(
             await fetch(
