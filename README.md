@@ -2,7 +2,7 @@
 
 Astroad is a pre-configured setup for Astro and Payloadcms that makes it easy to get started with building your website. With Astroad, you'll have a complete development environment that you can run locally using Docker. This makes it easy to test and develop your website before deploying it to a production environment.
 
-When you're ready to deploy the website on your own server, Astrotus comes with a production environment that requires the use of Traefik as a reverse proxy. This setup provides a secure and scalable production environment for your website.
+When you're ready to deploy the website on your own server, Astroad comes with a production environment that requires the use of Traefik as a reverse proxy. This setup provides a secure and scalable production environment for your website.
 
 ## Prerequisites
 
@@ -41,9 +41,15 @@ Once the secrets and variables are set on GitHub, they will replace the existing
 
 To get started with Astroad, you'll need to have Docker and NPM || Yarn || PNPM installed on your machine.
 
-1. Clone this repository: `git clone https://github.com/mooxl/astroad.git`
-2. Change into the repository directory: `cd astroad`
-3. Start the containers: `yarn dev`
+You have two options for getting the repository:
+
+1. Use the 'Use this template' button on the Github repository. This will create a new repository in your Github account with the same directory structure and files as Astroad. After the new repository is created, you can clone it to your local machine.
+1. Alternatively, you can directly clone the Astroad repository: git clone https://github.com/mooxl/astroad.git. If you choose this option, remember to change the origin of your remote repository to a new one to avoid pushing changes directly to the Astroad repository. This can be done with the command: git remote set-url origin https://github.com/USERNAME/REPOSITORY.git where USERNAME is your username and REPOSITORY is the name of your new repository.
+
+Once you've cloned the repository or created your own from the template, follow these steps:
+
+1. Change into the repository directory: `cd {newName}`
+1. Start the containers: `yarn dev`
 
 This will start up the Astro, Payloadcms and Mongo containers and make them available on your local machine. Astro will be served at http://localhost:3000 and the Payload will be available at http://localhost:3001.
 
