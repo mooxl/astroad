@@ -9,6 +9,8 @@ export const Media: CollectionConfig = {
   admin: {},
   access: {
     read: (): boolean => true,
+    create: () => true,
+    update: () => true,
   },
   upload: {
     staticURL: "/media",
