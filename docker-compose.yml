@@ -14,8 +14,6 @@ services:
     restart: unless-stopped
     build:
       context: payload
-    volumes:
-      - ./data/media:/app/dist/media
     environment:
       PAYLOAD_PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
