@@ -43,6 +43,10 @@ const Posts: CollectionConfig = {
       type: "text",
     },
     {
+      name: "hallo",
+      type: "text",
+    },
+    {
       name: "publishedDate",
       type: "date",
     },

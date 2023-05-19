@@ -16,6 +16,7 @@ export interface Config {
 export interface Post {
   id: string;
   title?: string;
+  hallo?: string;
   publishedDate?: string;
   content?: {
     [k: string]: unknown;
@@ -38,6 +39,7 @@ export interface User {
 }
 export interface Media {
   id: string;
+  alt?: string;
   updatedAt: string;
   createdAt: string;
   url?: string;
