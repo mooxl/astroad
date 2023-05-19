@@ -9,3 +9,5 @@ export const getPosts = async () =>
 
 export const getPost = async (id: string) =>
   (await (await fetch(`${url}/api/posts/${id}`)).json()) as Post;
+
+export const getImageSrc = (src: string) => `${url}/media/${src}}`;

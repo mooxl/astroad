@@ -1,6 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { getContentArray } from "../utils/helpers";
+import { getImageSrc } from "../utils/payload";
 const { content } = Astro.props;
 const contentArray = getContentArray(content);
 ---
@@ -13,7 +14,7 @@ const contentArray = getContentArray(content);
       } else {
         return (
           <Image
-            src={`http://payload:3001/media/${value.src}`}
+            src={getImageSrc(value.src)}
             width={value.width}
             height={value.height}
             format="webp"
