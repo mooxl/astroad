@@ -24,7 +24,7 @@ const posts = await getPosts();
     <div class="flex gap-4 mt-3 flex-wrap">
       {
         posts.length > 0 ? (
-          posts.reverse().map((post) => (
+          posts.map((post) => (
             <a href={`/posts/${post.id}`}>
               <article class="text-gray bg-gray-light px-5 py-3 rounded-md shadow-md w-64 text-center hover:-translate-y-1 transition-transform">
                 <h3>{post.title}</h3>
