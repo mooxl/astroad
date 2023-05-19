@@ -21,7 +21,7 @@ const posts = await getPosts();
       your website.
     </p>
     <h2 class="mt-6">Posts</h2>
-    <div class="grid grid-cols-3 mt-3">
+    <div class="flex gap-4 mt-3 flex-wrap">
       {
         posts.length > 0 ? (
           posts.reverse().map((post) => (
