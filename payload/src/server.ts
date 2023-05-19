@@ -16,4 +16,6 @@ payload.init({
     payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
   },
 });
+
+app.use("/media", express.static("media"));
 app.listen(process.env.PAYLOAD_PORT);
