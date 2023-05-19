@@ -5,6 +5,8 @@ services:
       target: prod
     environment:
       PAYLOAD_URL: ${PAYLOAD_URL}
+    volumes:
+      - ./data/media:/prod/dist/media
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_URL}`)"

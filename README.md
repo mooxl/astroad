@@ -55,7 +55,7 @@ This will start up the Astro, Payloadcms and Mongo containers and make them avai
 
 ## Development
 
-The `docker-compose.yml` and `docker-compose-dev.yml` files includes everything you need to run the containers. The containers use the environment variables declared in the `.env.dev` file and mounted volumes to store data persistently even after the containers are stopped and started.
+The `docker-compose.yml` and `docker-compose-dev.yml` files includes everything you need to run the containers. The containers use the environment variables declared in the `.env` file and mounted volumes to store data persistently even after the containers are stopped and started.
 
 ## Deployment
 
