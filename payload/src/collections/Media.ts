@@ -12,7 +12,6 @@ export const Media: CollectionConfig = {
     staticURL: "/media",
     staticDir: "media",
     mimeTypes: ["image/*"],
-    adminThumbnail: ({ doc }) => `${process.env.PAYLOAD_URL}/media/${doc.src}`,
   },
 
   fields: [
