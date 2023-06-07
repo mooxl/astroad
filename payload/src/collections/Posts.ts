@@ -18,7 +18,7 @@ const Posts: CollectionConfig = {
         try {
           console.log(
             await fetch(
-              `https://api.github.com/repos/mooxl/${process.env.name}/dispatches`,
+              `https://api.github.com/repos/mooxl/${process.env.NAME}/dispatches`,
               {
                 method: "POST",
                 headers: {

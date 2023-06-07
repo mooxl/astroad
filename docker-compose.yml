@@ -15,6 +15,7 @@ services:
     build:
       context: payload
     environment:
+      NAME: ${NAME}
       PAYLOAD_URL: ${PAYLOAD_URL}
       PAYLOAD_PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
