@@ -16,7 +16,6 @@ services:
     volumes:
       - ./payload/src:/base/src
       - ./astro/src/types.ts:/types.ts
-      - ./data/media:/base/dist/media
     ports:
       - 3001:3001
 

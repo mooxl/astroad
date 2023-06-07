@@ -1,38 +1,72 @@
-name: Clone or pull repository
+name: Code Deployment and Environment Setup
 on:
   push:
     branches:
       - main
 jobs:
   build:
-    name: Run remote SSH command
+    name: Run remote SSH commands
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger build via ssh
-        uses: appleboy/ssh-action@master
+      - name: Clone or pull repository
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
+          script_stop: false
           script: |
             if [ -d ${{ secrets.PATH }} ]; then
               cd ${{ secrets.PATH }}
               git pull
             else
-              mkdir ${{ secrets.PATH }}
+              mkdir -p ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
               git clone https://github.com/${{ github.repository }} .
-              sed -i "s/ASTRO_URL=.*/ASTRO_URL=${{ vars.ASTRO_URL }}/" .env
-              sed -i "s/PAYLOAD_URL=.*/PAYLOAD_URL=${{ vars.PAYLOAD_URL }}/" .env
-              sed -i "s/PAYLOAD_PORT=.*/PAYLOAD_PORT=${{ secrets.PAYLOAD_PORT }}/" .env
-              sed -i "s/PAYLOAD_SECRET=.*/PAYLOAD_SECRET=${{ secrets.PAYLOAD_SECRET }}/" .env
-              sed -i "s/MONGODB_URI=.*/MONGODB_URI=${{ secrets.MONGODB_URI }}/" .env
-              sed -i "s/MONGODB_USER=.*/MONGODB_USER=${{ secrets.MONGODB_USER }}/" .env
-              sed -i "s/MONGODB_PW=.*/MONGODB_PW=${{ secrets.MONGODB_PW }}/" .env
-              sed -i "s/TOKEN=.*/TOKEN=${{ secrets.TOKEN }}/" .env
-              sed -i "s/NAME=.*/NAME=${{ vars.NAME }}/" .env
-              cp .env ./astro/.env
             fi
+
+      - name: Update environment variables
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          script_stop: false
+          script: |
+            # Bash function to replace env variables
+            replace_env() {
+              local env_var=$1
+              local new_value=$2
+              local file=$3
+              sed -i "s/${env_var}=.*/${env_var}=${new_value}/" $file
+            }
+
+            cd ${{ secrets.PATH }}
+
+            # Replace .env with vars
+            replace_env 'NAME' '${{ vars.NAME }}' .env
+            replace_env 'ASTRO_HOST' '${{ vars.ASTRO_HOST }}' .env
+            replace_env 'PAYLOAD_HOST' '${{ vars.PAYLOAD_HOST }}' .env
+            replace_env 'PAYLOAD_SERVER_URL' '${{ vars.PAYLOAD_SERVER_URL }}' .env
+            replace_env 'PAYLOAD_PORT' '${{ vars.PAYLOAD_PORT }}' .env
+
+            # Replace .env with secrets
+            replace_env 'PAYLOAD_SECRET' '${{ secrets.PAYLOAD_SECRET }}' .env
+            replace_env 'MONGODB_URI' '${{ secrets.MONGODB_URI }}' .env
+            replace_env 'MONGODB_USER' '${{ secrets.MONGODB_USER }}' .env
+            replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}' .env
+            replace_env 'TOKEN' '${{ secrets.TOKEN }}' .env
+
+            # mkdir -p ./astro
+            # cp .env ./astro/.env
+
+      - name: Start Production Services
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd ${{ secrets.PATH }}
             yarn prod payload
-            sleep 10
             yarn prod astro
