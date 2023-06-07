@@ -29,7 +29,7 @@ Variables:
 
 - ASTRO_HOST: Hostdomain of the Frontend
 - PAYLOAD_HOST: Hostdomain of the CMS
-- PAYLOAD_SERVER_URL: URL of the CMS
+- PAYLOAD_URL: URL of the CMS
 - NAME: Name of the Container and Project
 
 Please remember to set these secrets and variables in your repository settings to ensure a successful deployment through Github Workflows.

@@ -15,7 +15,7 @@ services:
     build:
       context: payload
     environment:
-      PAYLOAD_SERVER_URL: ${PAYLOAD_SERVER_URL}
+      PAYLOAD_URL: ${PAYLOAD_URL}
       PAYLOAD_PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       MONGODB_URI: ${MONGODB_URI}

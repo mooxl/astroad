@@ -37,25 +37,24 @@ jobs:
             replace_env() {
               local env_var=$1
               local new_value=$2
-              local file=$3
-              sed -i "s/${env_var}=.*/${env_var}=${new_value}/" $file
+              sed -i "s/${env_var}=.*/${env_var}=${new_value}/" .env
             }
 
             cd ${{ secrets.PATH }}
 
             # Replace .env with vars
-            replace_env 'NAME' '${{ vars.NAME }}' .env
-            replace_env 'ASTRO_HOST' '${{ vars.ASTRO_HOST }}' .env
-            replace_env 'PAYLOAD_HOST' '${{ vars.PAYLOAD_HOST }}' .env
-            replace_env 'PAYLOAD_SERVER_URL' '${{ vars.PAYLOAD_SERVER_URL }}' .env
-            replace_env 'PAYLOAD_PORT' '${{ vars.PAYLOAD_PORT }}' .env
+            replace_env 'NAME' '${{ vars.NAME }}'
+            replace_env 'ASTRO_HOST' '${{ vars.ASTRO_HOST }}'
+            replace_env 'PAYLOAD_HOST' '${{ vars.PAYLOAD_HOST }}'
+            replace_env 'PAYLOAD_URL' '${{ vars.PAYLOAD_URL }}'
+            replace_env 'PAYLOAD_PORT' '${{ vars.PAYLOAD_PORT }}'
 
             # Replace .env with secrets
-            replace_env 'PAYLOAD_SECRET' '${{ secrets.PAYLOAD_SECRET }}' .env
-            replace_env 'MONGODB_URI' '${{ secrets.MONGODB_URI }}' .env
-            replace_env 'MONGODB_USER' '${{ secrets.MONGODB_USER }}' .env
-            replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}' .env
-            replace_env 'TOKEN' '${{ secrets.TOKEN }}' .env
+            replace_env 'PAYLOAD_SECRET' '${{ secrets.PAYLOAD_SECRET }}'
+            replace_env 'MONGODB_URI' '${{ secrets.MONGODB_URI }}'
+            replace_env 'MONGODB_USER' '${{ secrets.MONGODB_USER }}'
+            replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}'
+            replace_env 'TOKEN' '${{ secrets.TOKEN }}'
 
             mkdir -p ./astro
             cp .env ./astro/.env
