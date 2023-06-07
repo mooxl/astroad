@@ -57,8 +57,8 @@ jobs:
             replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}' .env
             replace_env 'TOKEN' '${{ secrets.TOKEN }}' .env
 
-            # mkdir -p ./astro
-            # cp .env ./astro/.env
+            mkdir -p ./astro
+            cp .env ./astro/.env
 
       - name: Start Production Services
         uses: appleboy/ssh-action@v0.1.10
