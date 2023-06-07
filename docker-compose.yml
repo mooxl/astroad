@@ -18,7 +18,7 @@ services:
       PAYLOAD_PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       MONGODB_URI: ${MONGODB_URI}
-      PAYLOAD_URL: ${PAYLOAD_URL}
+      PAYLOAD_SERVER_URL: ${PAYLOAD_SERVER_URL}
       TOKEN: ${TOKEN}
     networks:
       - front

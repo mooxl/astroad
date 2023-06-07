@@ -4,10 +4,10 @@ services:
       context: astro
       target: prod
     environment:
-      PAYLOAD_URL: ${PAYLOAD_URL}
+      PAYLOAD_SERVER_URL: ${PAYLOAD_SERVER_URL}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_URL}`)"
+      - "traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_HOST}`)"
       - "traefik.http.routers.${NAME}-astro.entrypoints=https"
       - "traefik.http.routers.${NAME}-astro.tls.certresolver=httpresolver"
       - "traefik.http.routers.${NAME}-astro.middlewares=security-headers-${NAME}-astro"
@@ -39,7 +39,7 @@ services:
       - ./data/media:/prod/dist/media
     labels:
       - traefik.enable=true
-      - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_URL}`)
+      - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_HOST}`)
       - traefik.http.routers.${NAME}-payload.entrypoints=https
       - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
       - traefik.docker.network=traefik_network
