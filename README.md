@@ -1,8 +1,6 @@
 # Astroad
 
-Astroad is a pre-configured setup for Astro and Payloadcms that makes it easy to get started with building your website. With Astroad, you'll have a complete development environment that you can run locally using Docker. This makes it easy to test and develop your website before deploying it to a production environment.
-
-When you're ready to deploy the website on your own server, Astroad comes with a production environment that requires the use of Traefik as a reverse proxy. This setup provides a secure and scalable production environment for your website.
+Astroad is a pre-configured setup for Astro and Payloadcms, designed to make it easy for you to start building your website. With Astroad, you'll have a complete development environment that you can run locally using Docker. This setup simplifies the testing and development of your website before deploying it to a production environment.
 
 ## Prerequisites
 
