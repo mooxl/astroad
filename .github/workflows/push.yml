@@ -37,7 +37,7 @@ jobs:
             replace_env() {
               local env_var=$1
               local new_value=$2
-              sed -i "s/${env_var}=.*/${env_var}=${new_value}/" .env
+              sed -i "s#${env_var}=.*#${env_var}=${new_value}#" .env
             }
 
             cd ${{ secrets.PATH }}
