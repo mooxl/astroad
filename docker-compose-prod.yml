@@ -3,8 +3,6 @@ services:
     build:
       context: astro
       target: prod
-    environment:
-      PAYLOAD_SERVER_URL: ${PAYLOAD_SERVER_URL}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_HOST}`)"
