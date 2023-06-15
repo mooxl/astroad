@@ -35,7 +35,7 @@ While there's no configuration necessary for local development, deployment via G
 
 Please remember to set these secrets and variables in your repository settings to ensure a successful deployment through Github Workflows.
 
-Once the secrets and variables are set on GitHub, they will replace the existing ones in the .env file on the server during deployment. This is done by the push.yml workflow, which replaces the placeholders in the .env with the actual secrets and variables defined in the repository settings. Please ensure that the names of your secrets and variables match with the placeholders in the .env file.
+Once the secrets and variables are set on GitHub, they will replace the existing ones in the `.env` file on the server during deployment. This is done by the push.yml workflow, which replaces the placeholders in the `.env` with the actual secrets and variables defined in the repository settings. Please ensure that the names of your secrets and variables match with the placeholders in the `.env` file.
 
 ## Getting started
 
