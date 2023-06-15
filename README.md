@@ -16,22 +16,22 @@ While there's no configuration necessary for local development, deployment via G
 
 ### Secrets:
 
-- USER: User on the server
-- HOST: IP or URL of the server
-- KEY: SSH KEY for connecting to the server
-- MONGODB_PW: Password for MongoDB
-- MONGODB_USER: User for MongoDB
-- PATH: Path where the repository resides on the server
-- PAYLOAD_PORT: Port at which Payload listens
-- PAYLOAD_SECRET: String to encrypt Payload data
-- TOKEN: Github Access Token for the webhook to trigger the payload.yml workflow and execute a new Astro build
+- `USER`: User on the server
+- `HOST`: IP or URL of the server
+- `KEY`: SSH KEY for connecting to the server
+- `MONGODB_PW`: Password for MongoDB
+- `MONGODB_USER`: User for MongoDB
+- `PATH`: Path where the repository resides on the server
+- `PAYLOAD_PORT`: Port at which Payload listens
+- `PAYLOAD_SECRET`: String to encrypt Payload data
+- `TOKEN`: Github Access Token for the webhook to trigger the payload.yml workflow and execute a new Astro build
 
 ### Variables:
 
-- ASTRO_HOST: Hostdomain of the Frontend
-- PAYLOAD_HOST: Hostdomain of the CMS
-- PAYLOAD_URL: URL of the CMS
-- NAME: Name of the Container and Project
+- `ASTRO_HOST`: Hostdomain of the Frontend
+- `PAYLOAD_HOST`: Hostdomain of the CMS
+- `PAYLOAD_URL`: URL of the CMS
+- `NAME`: Name of the Container and Project
 
 Please remember to set these secrets and variables in your repository settings to ensure a successful deployment through Github Workflows.
 
