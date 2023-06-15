@@ -22,7 +22,7 @@ jobs:
             else
               mkdir -p ${{ secrets.PATH }}
               cd ${{ secrets.PATH }}
-              git clone https://github.com/${{ github.repository }} .
+              git clone git@github.com:${{ github.repository }}.git .
             fi
 
       - name: Update environment variables
