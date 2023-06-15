@@ -51,7 +51,7 @@ jobs:
 
             # Replace .env with secrets
             replace_env 'PAYLOAD_SECRET' '${{ secrets.PAYLOAD_SECRET }}'
-            replace_env 'MONGODB_URI' '${{ secrets.MONGODB_URI }}'
+            replace_env 'MONGODB_URI' 'mongodb://${{ secrets.MONGODB_USER }}:${{ secrets.MONGODB_PW }}@mongo:27017'
             replace_env 'MONGODB_USER' '${{ secrets.MONGODB_USER }}'
             replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}'
             replace_env 'TOKEN' '${{ secrets.TOKEN }}'
