@@ -35,6 +35,8 @@ services:
       target: prod
     volumes:
       - ./data/media:/prod/dist/media
+    environment:
+      - REPOSITORY=${REPOSITORY}
     labels:
       - traefik.enable=true
       - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_HOST}`)
