@@ -13,7 +13,8 @@ Before getting started with Astroad, make sure you have the necessary software i
 ## Configuration
 
 While there's no configuration necessary for local development, deployment via Github Workflows requires specific secrets and variables to be set.
-Secrets:
+
+### Secrets:
 
 - USER: User on the server
 - HOST: IP or URL of the server
@@ -25,7 +26,7 @@ Secrets:
 - PAYLOAD_SECRET: String to encrypt Payload data
 - TOKEN: Github Access Token for the webhook to trigger the payload.yml workflow and execute a new Astro build
 
-Variables:
+### Variables:
 
 - ASTRO_HOST: Hostdomain of the Frontend
 - PAYLOAD_HOST: Hostdomain of the CMS
