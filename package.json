@@ -1,6 +1,7 @@
 {
   "name": "astrotus",
   "license": "MIT",
+  "version": "1.0",
   "scripts": {
     "dev": "docker compose -f docker-compose.yml -f docker-compose-dev.yml  up -d",
     "prod": "docker compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build",
