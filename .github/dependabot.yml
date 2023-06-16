@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/astro"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/payload"
+    schedule:
+      interval: "daily"
