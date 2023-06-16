@@ -1,6 +1,5 @@
 {
   "include": ["*.ts"],
-  "exclude": ["node_modules"],
   "references": [
     {
       "path": "./astro/tsconfig.json"
