@@ -6,11 +6,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "baseUrl": ".",
-    "rootDir": "./src",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "jsx": "react"
   },
   "ts-node": {
-    "transpileOnly": true
+    "transpileOnly": true,
+    "require": ["tsconfig-paths/register"]
   }
 }
