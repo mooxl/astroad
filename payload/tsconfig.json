@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "./dist",
+    "baseUrl": ".",
     "rootDir": "./src",
-    "jsx": "react",
+    "jsx": "react"
   },
   "ts-node": {
     "transpileOnly": true
