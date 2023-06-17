@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*", "./dist/*", "./dist/src/*"]
     },
     "jsx": "react"
   },
