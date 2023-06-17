@@ -1,7 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { getContentArray } from "src/utils/helpers";
-import { getImageSrc } from "src/utils/payload";
+import { getContentArray } from "@/utils/helpers";
+import { getImageSrc } from "@/utils/payload";
 const { content } = Astro.props;
 const contentArray = getContentArray(content);
 ---
