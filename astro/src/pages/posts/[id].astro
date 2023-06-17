@@ -1,8 +1,8 @@
 ---
-import Layout from "src/layouts/Layout.astro";
-import Content from "src/components/Content.astro";
-import type { Post } from "src/types";
-import { getPost, getPosts } from "src/utils/payload";
+import Layout from "@/layouts/Layout.astro";
+import Content from "@/components/Content.astro";
+import type { Post } from "@/types";
+import { getPost, getPosts } from "@/utils/payload";
 
 export async function getStaticPaths() {
   const posts = await getPosts();
