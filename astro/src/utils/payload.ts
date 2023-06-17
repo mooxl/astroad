@@ -1,4 +1,4 @@
-import type { Post } from "../types";
+import type { Post } from "src/types";
 
 const url = import.meta.env.DEV
   ? "http://payload:3001"
