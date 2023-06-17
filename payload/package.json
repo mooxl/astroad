@@ -1,7 +1,7 @@
 {
-  "name": "payload-blog-typescript",
-  "description": "Blog template",
-  "version": "1.0.0",
+  "name": "astroad",
+  "description": "Astroad - Payload",
+  "version": "1.1",
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
@@ -16,13 +16,13 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.1.4",
     "express": "^4.17.1",
-    "payload": "^1.8.5"
+    "payload": "^1.8.5",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
     "nodemon": "^2.0.6",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   }
 }
