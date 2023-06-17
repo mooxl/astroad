@@ -3,10 +3,8 @@ services:
     build:
       target: dev
     volumes:
-      - ./astro/src:/base/src
-      - ./astro/public:/base/public
-      - ./astro/astro.config.mjs:/base/astro.config.mjs
-      - ./astro/tailwind.config.cjs:/base/tailwind.config.cjs
+      - ./astro:/base
+      - /base/node_modules/
     ports:
       - 3000:3000
 
