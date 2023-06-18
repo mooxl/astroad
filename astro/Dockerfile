@@ -13,7 +13,7 @@ FROM base AS build
 ENV NODE_ENV=production
 WORKDIR /build
 COPY --from=base /base ./
-ADD "https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h" skipcache
+ADD "https://random-uuid.deno.dev" skipcache
 RUN yarn build
 
 FROM nginx:stable AS prod
