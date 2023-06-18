@@ -30,6 +30,7 @@ services:
   mongo:
     container_name: ${NAME}-mongo
     image: mongo:6.0.5
+    restart: unless-stopped
     volumes:
       - ./data/mongo:/data/db
     command:
