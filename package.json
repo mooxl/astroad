@@ -1,6 +1,6 @@
 {
   "name": "astroad",
-  "description": "A pre-configured setup for easy website development with Astro and Payload CMS using Docker. ",
+  "description": "A pre-configured setup for easy website development with Astro and Payload CMS using Docker.",
   "license": "MIT",
   "version": "1.1",
   "scripts": {
