@@ -18,7 +18,7 @@
     "astro-critters": "^1.1.38",
     "css-select": "5.1.0",
     "sharp": "^0.32.1",
-    "slate-serializers": "0.1.0",
+    "slate-serializers": "0.2.0",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
