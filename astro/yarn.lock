@@ -102,14 +102,13 @@
     sitemap "^7.1.1"
     zod "^3.17.3"
 
-"@astrojs/tailwind@3.1.3":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-3.1.3.tgz#750873dbfa87b4dd99395a03e148f6c6f61b2b43"
-  integrity sha512-10S1omrv5K5HRVAZ0fBgN5vQykn2HRL332LAVFyBASMn1Ff6gDfSK+CPUeUu94eZUOEaPnECLK8EHAqZ8iY9CA==
+"@astrojs/tailwind@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-4.0.0.tgz#27f13b54ba65653b6586bb26cbfd02a1b3fec78a"
+  integrity sha512-HmCAXFFes7MUBt5ihdfH1goa8QyGkHejIpz6Z4XBKK9VNYY9G2E3brCn8+pNn5zAOzcwl3FYcuH2AiOa/NGoMQ==
   dependencies:
-    "@proload/core" "^0.3.3"
     autoprefixer "^10.4.14"
-    postcss "^8.4.23"
+    postcss "^8.4.24"
     postcss-load-config "^4.0.1"
 
 "@astrojs/telemetry@^2.1.1":
@@ -555,14 +554,6 @@
     open "^9.1.0"
     picocolors "^1.0.0"
     tslib "^2.5.0"
-
-"@proload/core@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@proload/core/-/core-0.3.3.tgz#0a30c5ab69e21254b339813c674a6197a42337c3"
-  integrity sha512-7dAFWsIK84C90AMl24+N/ProHKm4iw0akcnoKjRvbfHifJZBLhaDsDus1QJmhG12lXj4e/uB/8mB/0aduCW+NQ==
-  dependencies:
-    deepmerge "^4.2.2"
-    escalade "^3.1.1"
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -1322,11 +1313,6 @@ deepmerge-ts@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/deepmerge-ts/-/deepmerge-ts-4.3.0.tgz#432aff3cd09f947e36cdb3772a43960bf45327fe"
   integrity sha512-if3ZYdkD2dClhnXR5reKtG98cwyaRT1NeugQoAPTTfsOpV9kqyeiBF9Qa5RHjemb3KzD5ulqygv6ED3t5j9eJw==
-
-deepmerge@^4.2.2:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.3.1.tgz#44b5f2147cd3b00d4b56137685966f26fd25dd4a"
-  integrity sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==
 
 default-browser-id@^3.0.0:
   version "3.0.0"
