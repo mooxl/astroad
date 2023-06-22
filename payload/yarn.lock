@@ -2445,11 +2445,6 @@ functions-have-names@^1.2.3:
   resolved "https://registry.yarnpkg.com/functions-have-names/-/functions-have-names-1.2.3.tgz#0404fe4ee2ba2f607f0e0ec3c80bae994133b834"
   integrity sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==
 
-generaterr@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/generaterr/-/generaterr-1.5.0.tgz#b0ceb6cc5164df2a061338cc340a8615395c52fc"
-  integrity sha512-JgcGRv2yUKeboLvvNrq9Bm90P4iJBu7/vd5wSLYqMG5GJ6SxZT46LAAkMfNhQ+EK3jzC+cRBm7P8aUWYyphgcQ==
-
 get-intrinsic@^1.0.2, get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.2.1.tgz#d295644fed4505fc9cde952c37ee12b477a83d82"
@@ -3823,15 +3818,6 @@ passport-jwt@^4.0.1:
     jsonwebtoken "^9.0.0"
     passport-strategy "^1.0.0"
 
-passport-local-mongoose@^7.1.2:
-  version "7.1.2"
-  resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-7.1.2.tgz#0a89876ef8a8e18787e59a39740e61c5653eb25e"
-  integrity sha512-hNLIKi/6IhElr/PhOze8wLDh7T4+ZYhc8GFWYApLgG7FrjI55tuGZELPtsUBqODz77OwlUUf+ngPgHN09zxGLg==
-  dependencies:
-    generaterr "^1.5.0"
-    passport-local "^1.0.0"
-    scmp "^2.1.0"
-
 passport-local@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
@@ -3905,10 +3891,10 @@ pause@0.0.1:
   resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
   integrity sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==
 
-payload@^1.8.5:
-  version "1.8.5"
-  resolved "https://registry.yarnpkg.com/payload/-/payload-1.8.5.tgz#e42cd4c3d138ac2f1cccb91f711f8424e0308c93"
-  integrity sha512-ruiwe1h0+0ZXRdk3gC2YFx9+1/EXCMe/q9+xaAeXJCAEibf3iRwaaz/JEoWa2ZH8tGIZWrBtP++Sh9+lPeYyuA==
+payload@^1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/payload/-/payload-1.10.1.tgz#4ae53acdc428b7a3b4f4230b09d08a663b3b433a"
+  integrity sha512-lel4z/D0IVVyjpgfi/c+HJr/J8Akdx4sZwgrDY0yuXsO+ktYGDQpmfXoxmtuIFlP3iLmQcAwsuW+2adtK0HOmg==
   dependencies:
     "@date-io/date-fns" "^2.16.0"
     "@dnd-kit/core" "^6.0.7"
@@ -3976,7 +3962,6 @@ payload@^1.8.5:
     passport-headerapikey "^1.2.2"
     passport-jwt "^4.0.1"
     passport-local "^1.0.0"
-    passport-local-mongoose "^7.1.2"
     path-browserify "^1.0.1"
     pino "^6.4.1"
     pino-pretty "^9.1.1"
@@ -4003,6 +3988,7 @@ payload@^1.8.5:
     sass "^1.57.1"
     sass-loader "^12.6.0"
     scheduler "^0.23.0"
+    scmp "^2.1.0"
     sharp "^0.31.3"
     slate "^0.91.4"
     slate-history "^0.86.0"

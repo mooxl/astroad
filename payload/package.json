@@ -16,7 +16,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.1.4",
     "express": "^4.17.1",
-    "payload": "^1.8.5",
+    "payload": "^1.10.1",
     "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
