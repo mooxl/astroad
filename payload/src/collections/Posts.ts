@@ -16,21 +16,22 @@ const Posts: CollectionConfig = {
         console.log(process.env.TOKEN);
 
         try {
-          console.log(
-            await fetch(
-              `https://api.github.com/repos/${process.env.REPOSITORY}/dispatches`,
-              {
-                method: "POST",
-                headers: {
-                  Accept: "application/vnd.github.everest-preview+json",
-                  Authorization: `token ${process.env.TOKEN}`,
-                },
-                body: JSON.stringify({
-                  event_type: "payload_update",
-                }),
-              }
-            )
-          );
+          process.env.NODE_ENV !== "development" &&
+            console.log(
+              await fetch(
+                `https://api.github.com/repos/${process.env.REPOSITORY}/dispatches`,
+                {
+                  method: "POST",
+                  headers: {
+                    Accept: "application/vnd.github.everest-preview+json",
+                    Authorization: `token ${process.env.TOKEN}`,
+                  },
+                  body: JSON.stringify({
+                    event_type: "payload_update",
+                  }),
+                }
+              )
+            );
         } catch (e) {
           console.log(e);
         }
