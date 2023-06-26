@@ -3,7 +3,19 @@ on:
   repository_dispatch:
     types: [payload_update]
 jobs:
+  cancel:
+    name: Cancel Previous Runs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          ignore_sha: true
+          access_token: ${{ github.token }}
+          workflow_id: "payload.yml"
+
   build:
+    needs: cancel
     runs-on: ubuntu-latest
     steps:
       - name: Trigger build
@@ -14,5 +26,4 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd ${{ secrets.PATH }}
-            git pull
             yarn prod astro
