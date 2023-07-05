@@ -15,7 +15,7 @@
     "@astrojs/tailwind": "4.0.0",
     "astro": "^2.7.4",
     "astro-compress": "^1.1.49",
-    "astro-critters": "^1.1.38",
+    "astro-critters": "^1.1.39",
     "css-select": "5.1.0",
     "sharp": "^0.32.1",
     "slate-serializers": "0.1.0",
