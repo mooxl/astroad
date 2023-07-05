@@ -791,12 +791,12 @@ astro-compress@^1.1.49:
     svgo "3.0.2"
     terser "5.18.2"
 
-astro-critters@^1.1.38:
-  version "1.1.38"
-  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-1.1.38.tgz#ba803f19c6f099b53c6165f8c8e1a9357523878c"
-  integrity sha512-hU2XTAxJg3KIq6u5H6VJCJBr120uG8YbTJOqeB/0VP8ufmPCkBcvQs6HzSP1g5qgPjkX9572lZdbSjmrkVjqvQ==
+astro-critters@^1.1.39:
+  version "1.1.39"
+  resolved "https://registry.yarnpkg.com/astro-critters/-/astro-critters-1.1.39.tgz#d38a6a9199f82cb167f1c6a8c872980fae53337a"
+  integrity sha512-Y4sqVwIAqEdpABEbf4mO0sB1KuibAjng7vxw66qrOrCkZuOoozqf3lbGWiB9PDqR6vQHTMr9zjcDcpxb1GRg0Q==
   dependencies:
-    critters "0.0.18"
+    critters "0.0.19"
     files-pipe "0.0.7"
 
 astro@^2.7.2:
@@ -1205,10 +1205,10 @@ cookie@^0.5.0:
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.5.0.tgz#d1f5d71adec6558c58f389987c366aa47e994f8b"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
 
-critters@0.0.18:
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/critters/-/critters-0.0.18.tgz#37ea730ee3a1f19844e8099c3fd75b526e1bbcc9"
-  integrity sha512-I7t/da29EIWXgxx2RSW1md1DvenEgEuLlki6nHE5+Nc0e3eib5AuGIGbPVuI8q+erCKkSP9T/NqYfvasAy7x7A==
+critters@0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/critters/-/critters-0.0.19.tgz#15e3a3a0ed77ae4b69c3b2fe29c8e7e87fc77d1b"
+  integrity sha512-Fm4ZAXsG0VzWy1U30rP4qxbaWGSsqXDgSupJW1OUJGDAs0KWC+j37v7p5a2kZ9BPJvhRzWm3be+Hc9WvQOBUOw==
   dependencies:
     chalk "^4.1.0"
     css-select "^5.1.0"
