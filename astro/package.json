@@ -13,7 +13,7 @@
     "@astrojs/prefetch": "^0.2.3",
     "@astrojs/sitemap": "^1.3.3",
     "@astrojs/tailwind": "4.0.0",
-    "astro": "^2.8.0",
+    "astro": "^2.8.1",
     "css-select": "5.1.0",
     "sharp": "^0.32.1",
     "slate-serializers": "0.1.0",
