@@ -747,10 +747,10 @@ array-iterate@^2.0.0:
   resolved "https://registry.yarnpkg.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro@^2.8.4:
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.8.4.tgz#091d50e990c790193d1487e279d5550a5b979d8d"
-  integrity sha512-XTfMN6MszrkePcaLt19eQl5BA3Mg8Jqvb7wDWBYoQAJQwU0YE3BBbAwFgWosA1rBv4wClWIne8CKq5iBDklrOQ==
+astro@^2.8.5:
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.8.5.tgz#61af374ff50d16003880602656560391663b012c"
+  integrity sha512-qfPUKLpZ9lVi5Hc5MrzyekUUx54AyrEphW5eetNQj/+d0iodHEneZXFDzZxTEsk3rL8Y2Y9pYFXJPmQB3eahUA==
   dependencies:
     "@astrojs/compiler" "^1.5.3"
     "@astrojs/internal-helpers" "^0.1.1"
