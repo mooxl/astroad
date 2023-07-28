@@ -49,7 +49,7 @@ You have two options for getting the repository:
 Once you've cloned the repository or created your own from the template, follow these steps:
 
 1. Change into the repository directory: `cd {newName}`
-1. Start the containers: `npm run dev`
+1. Start the containers: `yarn dev`
 
 This will start up the Astro, Payloadcms and Mongo containers and make them available on your local machine. Astro will be served at http://localhost:3000 and the Payload will be available at http://localhost:3001.
 
@@ -59,7 +59,7 @@ The `docker-compose.yml` and `docker-compose-dev.yml` files includes everything 
 
 ## Deployment
 
-Deployment is handled by a Github Actions Workflow on every push. It logs into the server via SSH, pulls or clones the latest version of the repository, and runs `npm run prod`.
+Deployment is handled by a Github Actions Workflow on every push. It logs into the server via SSH, pulls or clones the latest version of the repository, and runs `yarn prod`.
 
 Because Astro is completely static, a content change in the CMS must trigger a new build of Astro. Therefore, there’s a `payload.yml` workflow that gets triggered by a webhook after every content change from Payload.
 
