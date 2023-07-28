@@ -70,5 +70,5 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd ${{ secrets.PATH }}
-            npm run prod payload
-            npm run prod astro
+            yarn prod payload
+            yarn prod astro

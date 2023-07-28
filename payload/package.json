@@ -8,7 +8,7 @@
     "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts node -r tsconfig-paths/register node_modules/payload/dist/bin/index.js build",
     "build:server": "tsc",
-    "build": "npm run build:payload && npm run build:server",
+    "build": "yarn build:payload && yarn build:server",
     "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js node -r tsconfig-paths/register dist/server.js",
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts node -r tsconfig-paths/register node_modules/payload/dist/bin/index.js generate:types"
   },
