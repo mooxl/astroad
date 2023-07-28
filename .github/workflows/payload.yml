@@ -26,4 +26,4 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd ${{ secrets.PATH }}
-            yarn prod astro
+            npm run prod astro
