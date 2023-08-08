@@ -9,7 +9,7 @@
     "build": "astro build"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.2",
+    "@astrojs/image": "^0.17.3",
     "@astrojs/prefetch": "^0.3.0",
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/tailwind": "4.0.0",
