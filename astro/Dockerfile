@@ -1,8 +1,8 @@
 FROM node:lts-alpine as base
 WORKDIR /base
-COPY ./package.json ./package.json
-RUN yarn install
-COPY ./ ./
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+COPY . .
 
 FROM base AS dev
 ENV NODE_ENV=development
@@ -12,7 +12,7 @@ CMD ["yarn","dev"]
 FROM base AS build
 ENV NODE_ENV=production
 WORKDIR /build
-COPY --from=base /base ./
+COPY --from=base /base .
 ADD "https://random-uuid.deno.dev" skipcache
 RUN yarn build
 
