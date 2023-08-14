@@ -57,7 +57,7 @@ jobs:
             replace_env 'TOKEN' '${{ secrets.TOKEN }}'
 
             # Replace .env with GitHub repository
-            replace_env 'REPOSITORY' '${{ github.repository }}
+            replace_env 'REPOSITORY' '${{ github.repository }}'
 
             mkdir -p ./astro
             cp .env ./astro/.env
