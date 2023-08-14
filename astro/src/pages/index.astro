@@ -15,17 +15,17 @@ const posts = await getPosts();
       This makes it easy to test and develop your website before deploying it to
       a production environment.
       <br />
-      When you're ready to deploy the website on your own server, Astrotus comes
-      with a production environment that requires the use of Traefik as a reverse
-      proxy. This setup provides a secure and scalable production environment for
-      your website.
+       When you're ready to deploy the website on your own server, Astrotus
+      comes with a production environment that requires the use of Traefik as a
+      reverse proxy. This setup provides a secure and scalable production
+      environment for your website.
     </p>
     <h2 class="mt-6">Posts</h2>
     <div class="flex gap-4 mt-3 flex-wrap">
       {
         posts.length > 0 ? (
           posts.map((post) => (
-            <a href={`/posts/${post.id}`}>
+            <a href={`/posts/${post.id}/`}>
               <article class="text-gray bg-gray-light px-5 py-3 rounded-md shadow-md w-64 text-center hover:-translate-y-1 transition-transform">
                 <h3>{post.title}</h3>
                 {post.publishedDate && (
