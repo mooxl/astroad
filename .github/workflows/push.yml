@@ -56,8 +56,8 @@ jobs:
             replace_env 'MONGODB_PW' '${{ secrets.MONGODB_PW }}'
             replace_env 'TOKEN' '${{ secrets.TOKEN }}'
 
-            # Append GitHub repository to .env
-            echo "REPOSITORY=${{ github.repository }}" >> .env
+            # Replace .env with GitHub repository
+            replace_env 'REPOSITORY' '${{ github.repository }}
 
             mkdir -p ./astro
             cp .env ./astro/.env
