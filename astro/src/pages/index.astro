@@ -6,8 +6,8 @@ const posts = await getPosts();
 ---
 
 <Layout title="Astroad">
-  <main class="">
-    <h1>Astroad</h1>
+  <main class="" >
+    <h1 transition:animate="fade">Astroad</h1>
     <p class="mt-3 text-lg">
       Astroad is a pre-configured setup for Astro and Payloadcms that makes it
       easy to get started with building your website. With Astroad, you'll have
@@ -27,7 +27,7 @@ const posts = await getPosts();
           posts.map((post) => (
             <a href={`/posts/${post.id}/`}>
               <article class="text-gray bg-gray-light px-5 py-3 rounded-md shadow-md w-64 text-center hover:-translate-y-1 transition-transform">
-                <h3>{post.title}</h3>
+                <h3 transition:name=`title-${post.id}`>{post.title}</h3>
                 {post.publishedDate && (
                   <p>
                     {new Date(post.publishedDate).toLocaleDateString("de-DE")}
