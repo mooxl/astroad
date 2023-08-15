@@ -16,6 +16,22 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <ViewTransitions />
+    <style>
+      @font-face {
+  font-family: "Plex";
+  src: url("/fonts/Plex-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex";
+  src: url("/fonts/Plex-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+    </style>
   </head>
   <body class="font-plex bg-gray max-w-7xl mx-auto py-8 text-gray-200 px-6">
       <slot />
