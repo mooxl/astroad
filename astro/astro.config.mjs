@@ -21,6 +21,9 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
+    prefetch({
+      selector: "a",
+    }),
     sitemap(),
     prefetch(),
   ],

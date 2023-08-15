@@ -25,7 +25,7 @@ const posts = await getPosts();
       {
         posts.length > 0 ? (
           posts.map((post) => (
-            <a href={`/posts/${post.id}/`} rel="prefetch">
+            <a href={`/posts/${post.id}/`}>
               <article class="text-gray bg-gray-light px-5 py-3 rounded-md shadow-md w-64 text-center hover:-translate-y-1 transition-transform">
                 <h3 class="font-bold text-lg" transition:name=`title-${post.id}`>{post.title}</h3>
                 {post.publishedDate && (
