@@ -21,7 +21,7 @@ const post = id && (await getPost(id));
     <Layout title={`Astroad | ${post.title!}`}>
       <div class="space-y-3 my-3">
         <a href="/">BACK</a>
-        <h1 transition:name=`title-${post.id}`>{post.title}</h1>
+        <h1 class="font-bold text-5xl" transition:name=`title-${post.id}`>{post.title}</h1>
         {post.content && <Content content={post.content} />}
       </div>
     </Layout>
