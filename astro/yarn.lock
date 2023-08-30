@@ -936,10 +936,10 @@ array-iterate@^2.0.0:
   resolved "https://registry.yarnpkg.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro@^2.10.12:
-  version "2.10.12"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-2.10.12.tgz#d11a7ee7725897dfe390f57a8dd6bfabae241ebb"
-  integrity sha512-JbD+hLCbXhpDofuzWQxojmjXwoqD0bR2BGqIByZ7B5Cj6dKQXHIr1HsrDdWcmjM+O4NXKV2TCfeXv1ZTtjqX3Q==
+astro@^2.10.15:
+  version "2.10.15"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-2.10.15.tgz#953cc02acd9dc51cd7763906f621e9ef645a526a"
+  integrity sha512-7jgkCZexxOX541g2kKHGOcDDUVKYc+sGi87GtLOkbWwTsKqEIp9GU0o7DpKe1rhItm9VVEiHz4uxvMh3wGmJdA==
   dependencies:
     "@astrojs/compiler" "^1.8.0"
     "@astrojs/internal-helpers" "^0.1.2"
