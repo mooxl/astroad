@@ -44,10 +44,6 @@ const Posts: CollectionConfig = {
       type: "text",
     },
     {
-      name: "hallo",
-      type: "text",
-    },
-    {
       name: "publishedDate",
       type: "date",
     },
@@ -72,24 +68,6 @@ const Posts: CollectionConfig = {
             },
           },
         },
-      },
-    },
-    {
-      name: "status",
-      type: "select",
-      options: [
-        {
-          value: "draft",
-          label: "Draft",
-        },
-        {
-          value: "published",
-          label: "Published",
-        },
-      ],
-      defaultValue: "draft",
-      admin: {
-        position: "sidebar",
       },
     },
   ],

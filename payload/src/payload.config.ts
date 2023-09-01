@@ -21,6 +21,6 @@ export default buildConfig({
   },
   collections: [Posts, Users, Media],
   typescript: {
-    outputFile: path.resolve("/", "types.ts"),
+    outputFile: path.resolve(__dirname, "./types.ts"),
   },
 });

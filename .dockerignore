@@ -2,4 +2,5 @@ data
 node_modules
 .git
 .gitignore
+*.md
 dist

@@ -1,6 +1,9 @@
 FROM node:lts-alpine as base
 WORKDIR /base
-COPY package.json yarn.lock ./
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+COPY package.json pnpm-lock.yaml ./
 RUN yarn install --frozen-lockfile
 COPY . .
 

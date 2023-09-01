@@ -17,12 +17,10 @@ export interface Config {
 export interface Post {
   id: string;
   title?: string;
-  hallo?: string;
   publishedDate?: string;
   content?: {
     [k: string]: unknown;
   }[];
-  status?: 'draft' | 'published';
   updatedAt: string;
   createdAt: string;
 }

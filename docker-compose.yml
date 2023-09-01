@@ -3,7 +3,7 @@ services:
     container_name: ${NAME}-astro
     restart: unless-stopped
     build:
-      context: astro
+      target: astro
     networks:
       - front
     depends_on:
@@ -13,7 +13,7 @@ services:
     container_name: ${NAME}-payload
     restart: unless-stopped
     build:
-      context: payload
+      target: payload
     environment:
       NAME: ${NAME}
       PAYLOAD_URL: ${PAYLOAD_URL}

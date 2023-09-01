@@ -7,7 +7,8 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*", "./dist/*", "./dist/src/*"]
+      "@/*": ["./src/*", "./dist/*", "./dist/src/*"],
+      "payload/generated-types": ["./src/payload-types.ts"]
     },
     "jsx": "react"
   },
