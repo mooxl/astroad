@@ -4,14 +4,16 @@ services:
     restart: unless-stopped
     build:
       target: astro
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_HOST}`)
-      - traefik.http.routers.${NAME}-astro.entrypoints=https
-      - traefik.http.routers.${NAME}-astro.tls.certresolver=httpresolver
-      - traefik.docker.network=traefik_network
-    networks:
-      - traefik_network
+    ports:
+      - 3000:80
+    # labels:
+    #   - traefik.enable=true
+    #   - traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_HOST}`)
+    #   - traefik.http.routers.${NAME}-astro.entrypoints=https
+    #   - traefik.http.routers.${NAME}-astro.tls.certresolver=httpresolver
+    #   - traefik.docker.network=traefik_network
+    # networks:
+    #   - traefik_network
     depends_on:
       - payload
 
@@ -29,15 +31,17 @@ services:
       REPOSITORY: ${REPOSITORY}
     volumes:
       - ./data/media:/prod/dist/media
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_HOST}`)
-      - traefik.http.routers.${NAME}-payload.entrypoints=https
-      - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
-      - traefik.docker.network=traefik_network
-    networks:
-      - traefik_network
-      - back
+    ports:
+      - 3001:3001
+    # labels:
+    #   - traefik.enable=true
+    #   - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_HOST}`)
+    #   - traefik.http.routers.${NAME}-payload.entrypoints=https
+    #   - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
+    #   - traefik.docker.network=traefik_network
+    # networks:
+    #   - traefik_network
+    #   - back
     depends_on:
       - mongo
 
@@ -52,10 +56,10 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PW}
-    networks:
-      - back
+#     networks:
+#       - back
 
-networks:
-  back:
-  traefik_network:
-    external: true
+# networks:
+#   back:
+#   traefik_network:
+#     external: true

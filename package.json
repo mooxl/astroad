@@ -4,6 +4,6 @@
   "license": "MIT",
   "version": "2.0",
   "scripts": {
-    "dev": "  pnpm -r --stream dev"
+    "dev": "pnpm -C cli run setup && pnpm run -r dev || true"
   }
 }

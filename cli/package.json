@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "setup": "node cli.js"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "dotenv": "^16.3.1",
+    "picocolors": "^1.0.0"
+  }
+}
