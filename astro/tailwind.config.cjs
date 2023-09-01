@@ -5,6 +5,10 @@ module.exports = {
     fontFamily: {
       plex: ["Plex", "sans-serif"],
     },
+    container: {
+      padding: "1rem",
+      center: true,
+    },
     extend: {
       colors: {
         gray: {
