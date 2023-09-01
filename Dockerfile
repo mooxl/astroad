@@ -33,7 +33,7 @@ COPY --from=build-payload /astroad/payload/package.json ./package.json
 COPY --from=build-payload /astroad/payload/dist ./dist
 COPY --from=build-payload /astroad/payload/build ./build
 COPY --from=deps-prod /astroad/payload/node_modules/ ./node_modules
-EXPOSE 3000
+EXPOSE 3001
 CMD ["pnpm", "serve"]
 
 FROM nginx:alpine AS astro

@@ -47,7 +47,6 @@ jobs:
             replace_env 'ASTRO_HOST' '${{ vars.ASTRO_HOST }}'
             replace_env 'PAYLOAD_HOST' '${{ vars.PAYLOAD_HOST }}'
             replace_env 'PAYLOAD_URL' '${{ vars.PAYLOAD_URL }}'
-            replace_env 'PAYLOAD_PORT' '${{ vars.PAYLOAD_PORT }}'
 
             # Replace .env with secrets
             replace_env 'PAYLOAD_SECRET' '${{ secrets.PAYLOAD_SECRET }}'

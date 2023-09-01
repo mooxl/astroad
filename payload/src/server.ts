@@ -18,4 +18,4 @@ payload.init({
 });
 
 app.use("/media", express.static("media"));
-app.listen(process.env.PAYLOAD_PORT);
+app.listen(3001);
