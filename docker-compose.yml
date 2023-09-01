@@ -23,7 +23,6 @@ services:
     environment:
       NAME: ${NAME}
       PAYLOAD_URL: ${PAYLOAD_URL}
-      PAYLOAD_PORT: ${PAYLOAD_PORT}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       MONGODB_URI: ${MONGODB_URI}
       TOKEN: ${TOKEN}

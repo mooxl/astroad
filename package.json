@@ -1,8 +1,8 @@
 {
   "name": "astroad",
-  "description": "A pre-configured setup for easy website development with Astro and Payload CMS using Docker.",
+  "description": "A pre-configured setup for easy website development with Astro and Payload CMS.",
   "license": "MIT",
-  "version": "1.1",
+  "version": "2.0",
   "scripts": {
     "dev": "  pnpm -r --stream dev"
   }
