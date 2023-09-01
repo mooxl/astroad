@@ -13,17 +13,25 @@ const changeEnv = (key, value) => {
   fs.writeFileSync(envPath, envFile);
 };
 
+const canceled = (value) => {
+  if (p.isCancel(value)) {
+    p.cancel("Operation cancelled.");
+    process.exit(1);
+  }
+};
+
 if (process.env.NODE_ENV !== "production" && process.env.NAME === "astroad") {
   p.intro(color.inverse(" Welcome to Astroad! Let's get you set up. "));
   const name = await p.text({
     message: "What's the name of your project?",
     placeholder: "Astroad",
   });
+  canceled(name);
   const mongoViaDocker = await p.confirm({
     message: "Do you want to start the database for Payload via Docker?",
     default: true,
   });
-
+  canceled(mongoViaDocker);
   if (mongoViaDocker) {
     let dockerRunning;
     try {
@@ -37,14 +45,17 @@ if (process.env.NODE_ENV !== "production" && process.env.NAME === "astroad") {
         message: "What should be the username for the database?",
         placeholder: "admin",
       });
+      canceled(username);
       const password = await p.text({
         message: "What should be the password for the database?",
         placeholder: "password",
       });
+      canceled(password);
       const port = await p.text({
         message: "What port should the database run on?",
         placeholder: "27017",
       });
+      canceled(port);
       const startMongo = p.spinner();
       startMongo.start("Starting MongoDB");
       execSync(
@@ -66,14 +77,17 @@ if (process.env.NODE_ENV !== "production" && process.env.NAME === "astroad") {
       message: "What is the username for the database?",
       placeholder: "admin",
     });
+    canceled(username);
     const password = await p.text({
       message: "What is the password for the database?",
       placeholder: "password",
     });
+    canceled(password);
     const port = await p.text({
       message: "What port is the database running on?",
       placeholder: "27017",
     });
+    canceled(port);
     changeEnv(
       "MONGODB_URI",
       `mongodb://${username}:${password}@localhost:${port}`,
