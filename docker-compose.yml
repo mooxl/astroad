@@ -4,8 +4,14 @@ services:
     restart: unless-stopped
     build:
       target: astro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${NAME}-astro.rule=Host(`${ASTRO_HOST}`)
+      - traefik.http.routers.${NAME}-astro.entrypoints=https
+      - traefik.http.routers.${NAME}-astro.tls.certresolver=httpresolver
+      - traefik.docker.network=traefik_network
     networks:
-      - front
+      - traefik_network
     depends_on:
       - payload
 
@@ -21,8 +27,17 @@ services:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       MONGODB_URI: ${MONGODB_URI}
       TOKEN: ${TOKEN}
+      REPOSITORY: ${REPOSITORY}
+    volumes:
+      - ./data/media:/prod/dist/media
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${NAME}-payload.rule=Host(`${PAYLOAD_HOST}`)
+      - traefik.http.routers.${NAME}-payload.entrypoints=https
+      - traefik.http.routers.${NAME}-payload.tls.certresolver=httpresolver
+      - traefik.docker.network=traefik_network
     networks:
-      - front
+      - traefik_network
       - back
     depends_on:
       - mongo
@@ -42,5 +57,6 @@ services:
       - back
 
 networks:
-  front:
   back:
+  traefik_network:
+    external: true
