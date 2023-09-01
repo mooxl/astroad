@@ -1,4 +1,4 @@
 packages:
   - astro
-  - payload
-  - cli
+  #- payload
+  #- cli
