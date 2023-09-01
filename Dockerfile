@@ -1,6 +1,7 @@
-FROM node:lts-alpine as base
+FROM node:lts-slim as base
 WORKDIR /astroad
 
+RUN corepack enable
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
@@ -9,26 +10,35 @@ COPY pnpm-workspace.yaml ./
 COPY astro/package.json astro/
 COPY payload/package.json payload/
 
-FROM base AS prod-deps
+FROM base AS deps-prod
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
-FROM base AS build
+FROM base AS build-payload
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 COPY . .
-RUN pnpm run -r build
+WORKDIR /astroad/payload
+RUN pnpm build
 
-FROM nginx:alpine AS astro
-COPY --from=build /astroad/astro/dist /usr/share/nginx/html
-EXPOSE 3000
+FROM base AS build-astro
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+COPY . .
+WORKDIR /astroad/astro
+RUN pnpm build
 
-FROM node:lts-alpine AS payload
-WORKDIR /payload
-COPY --from=build astroad/payload/build/tsconfig.json ./tsconfig.json
-COPY --from=build astroad/payload/build/dist ./dist
-COPY --from=build astroad/payload/build/build ./build
-COPY --from=prod-deps /astroad/payload/node_modules/ /astroad/payload/node_modules
+FROM base AS payload
+COPY --from=deps-prod /astroad/node_modules/ ./node_modules
+WORKDIR /astroad/payload
+COPY --from=build-payload /astroad/payload/tsconfig.json ./tsconfig.json
+COPY --from=build-payload /astroad/payload/package.json ./package.json
+COPY --from=build-payload /astroad/payload/dist ./dist
+COPY --from=build-payload /astroad/payload/build ./build
+COPY --from=deps-prod /astroad/payload/node_modules/ ./node_modules
 EXPOSE 3000
 CMD ["pnpm", "serve"]
+
+FROM nginx:alpine AS astro
+COPY --from=build-astro /astroad/astro/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-astro /astroad/astro/dist /usr/share/nginx/html
 
 # _____________ PAYLOAD _____________
 # FROM node:lts-alpine as base

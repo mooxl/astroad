@@ -4,6 +4,6 @@
   "license": "MIT",
   "version": "1.1",
   "scripts": {
-    "dev": "  pnpm -r --stream run dev"
+    "dev": "  pnpm -r --stream dev"
   }
 }
