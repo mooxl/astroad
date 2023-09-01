@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@payload/*": ["../payload/src/*"]
+      "types": ["../payload/src/types"]
     }
   }
 }

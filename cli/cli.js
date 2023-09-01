@@ -94,6 +94,6 @@ if (process.env.NODE_ENV === "development" && process.env.NAME === "astroad") {
     );
   }
   changeEnv("NAME", name);
-  p.outro("All done! Happy coding!");
+  p.outro(color.inverse("All done! Happy coding!"));
   await new Promise((resolve) => setTimeout(resolve, 2000));
 }

@@ -1,4 +1,4 @@
-import type { Post } from "@payload/types";
+import { Post } from "types";
 
 const url = import.meta.env.PAYLOAD_URL;
 
