@@ -1,5 +1,5 @@
 ---
-import ViewTransitions from "astro/components/ViewTransitions.astro";
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -14,23 +14,24 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    <ViewTransitions />
-    <style>
-      @font-face {
-        font-family: "Plex";
-        src: url("/fonts/Plex-Regular.woff2") format("woff2");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "Plex";
-        src: url("/fonts/Plex-Bold.woff2") format("woff2");
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
+    <ViewTransitions>
+      <style>
+        @font-face {
+          font-family: "Plex";
+          src: url("/fonts/Plex-Regular.woff2") format("woff2");
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: "Plex";
+          src: url("/fonts/Plex-Bold.woff2") format("woff2");
+          font-weight: bold;
+          font-style: normal;
+          font-display: swap;
+        }
+      </style>
+    </ViewTransitions>
   </head>
   <body class="bg-gray font-plex text-gray-200">
     <main class="container min-h-screen py-10">
