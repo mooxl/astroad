@@ -80,10 +80,10 @@
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
 
-"@astrojs/prefetch@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/prefetch/-/prefetch-0.3.0.tgz#d5b5e2dd9acd8cf5af40ee4c7e4c69c9f697cafd"
-  integrity sha512-LPKpbcnTwonkgNeLvVEQ1SXEyjkjsCm/o77Leg6/9725Cpn+rAIHiWMwFwigqf366VuvdvEYsG86nH8d1kSoNA==
+"@astrojs/prefetch@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/prefetch/-/prefetch-0.4.1.tgz#dc3fc616383aa5972fe766482927c9a603d7b09e"
+  integrity sha512-bpC875BqeIuWVgqhi4X814ftzzbKocaLkiZczaj8k5J2SRpueIGkww3XmD+yY/Ekkm9j30aS3neVO6wSm4IJNA==
   dependencies:
     throttles "^1.0.1"
 
