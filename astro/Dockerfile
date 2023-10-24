@@ -16,9 +16,6 @@ COPY --from=base /base .
 ADD "https://random-uuid.deno.dev" skipcache
 RUN yarn build
 
-FROM denoland/deno:1.36.1 AS prod
-WORKDIR /site
-RUN deno install --allow-net --allow-read https://deno.land/std@0.198.0/http/file_server.ts
-COPY --from=build /build/dist .
-CMD ["file_server", "--port", "3000", "--no-dir-listing"]
+FROM nginx:stable AS prod
+COPY --from=build /build/dist /usr/share/nginx/html
 EXPOSE 3000
