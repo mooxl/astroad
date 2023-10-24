@@ -17,5 +17,6 @@ ADD "https://random-uuid.deno.dev" skipcache
 RUN yarn build
 
 FROM nginx:stable AS prod
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /build/dist /usr/share/nginx/html
 EXPOSE 3000
