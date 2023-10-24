@@ -3,7 +3,46 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Astroad">
-  <h1 class="text-5xl font-bold">Astroad</h1>
+  <div class="mt-40 flex items-center gap-x-20">
+    <h1 class="flex-shrink-0 text-5xl font-bold leading-snug">
+      Crafting Your Design <br /> into a Stunning Website
+    </h1>
+    <div>
+      <div class="flex">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Adobe_XD_CC_icon.svg/512px-Adobe_XD_CC_icon.svg.png?20210729021535"
+          alt=""
+          class="mr-6 h-16"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/800px-Figma-logo.svg.png?20190122211436"
+          alt=""
+          class="mr-6 h-16"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Sketch_Logo.svg/394px-Sketch_Logo.svg.png?20230303045010"
+          alt=""
+          class="h-16"
+        />
+      </div>
+      <img
+        class="relative right-2 mx-auto h-14"
+        src="/chevron.svg"
+        width="100"
+        alt=""
+      />
+      <div class="flex">
+        <img src="/astro.svg" alt="" class="mr-6 h-16" />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207"
+          alt=""
+          class="mr-6 h-16"
+        />
+        <img src="/payload.svg" alt="" class="h-16" />
+      </div>
+    </div>
+  </div>
+  <!-- <h1 class="text-5xl font-bold">Astroad</h1>
   <p class="mt-10 columns-1 gap-x-20 text-lg md:columns-2">
     Astroad is a pre-configured setup for Astro and Payloadcms that makes it
     easy to get started with building your website. With Astroad, you'll have a
@@ -15,5 +54,5 @@ import Layout from "@/layouts/Layout.astro";
     with a production environment that requires the use of Traefik as a reverse
     proxy. This setup provides a secure and scalable production environment for
     your website.
-  </p>
+  </p> -->
 </Layout>

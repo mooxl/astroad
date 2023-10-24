@@ -20,7 +20,7 @@ const cancelled = (value) => {
   }
 };
 
-if (process.env.NODE_ENV === "development" && process.env.NAME === "astroad") {
+if (process.env.NODE_ENV !== "production" && process.env.NAME === "astroad") {
   p.intro(color.inverse(" Welcome to Astroad! Let's get you set up. "));
   const name = await p.text({
     message: "What's the name of your project?",
