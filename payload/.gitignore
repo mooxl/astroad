@@ -1,5 +1,6 @@
-node_modules/
-.env
 build
 dist
-src/media
+/media
+node_modules
+.DS_Store
+.env

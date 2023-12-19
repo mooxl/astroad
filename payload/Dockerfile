@@ -1,29 +1,27 @@
-FROM node:lts-alpine as base
-WORKDIR /base
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+FROM node:18.8-alpine as base
+
+FROM base as builder
+
+WORKDIR /home/node/app
+COPY package*.json ./
+
 COPY . .
-
-FROM base AS dev
-ENV NODE_ENV=development
-EXPOSE 3001
-CMD ["yarn","dev"]
-
-
-FROM base AS build
-ENV NODE_ENV=production
-WORKDIR /build
-COPY --from=base /base .
+RUN yarn install
 RUN yarn build
 
-FROM build as prod
-ENV NODE_ENV=production
-WORKDIR /prod
-COPY package*.json  .
-RUN yarn install --production
+FROM base as runtime
 
-COPY --from=build /build/tsconfig.json ./tsconfig.json
-COPY --from=build /build/dist ./dist
-COPY --from=build /build/build ./build
+ENV NODE_ENV=production
+ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
+
+WORKDIR /home/node/app
+COPY package*.json  ./
+COPY yarn.lock ./
+
+RUN yarn install --production
+COPY --from=builder /home/node/app/dist ./dist
+COPY --from=builder /home/node/app/build ./build
+
 EXPOSE 3000
-CMD ["yarn", "serve"]
+
+CMD ["node", "dist/server.js"]

@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - v2
 jobs:
   build:
     name: Run remote SSH commands

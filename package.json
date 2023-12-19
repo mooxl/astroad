@@ -1,11 +1,20 @@
 {
   "name": "astroad",
-  "description": "A pre-configured setup for easy website development with Astro and Payload CMS using Docker.",
+  "description": "A pre-configured setup for easy website development with Astro and Payload CMS.",
   "license": "MIT",
-  "version": "1.1",
+  "version": "2.0",
   "scripts": {
-    "dev": "docker compose -f docker-compose.yml -f docker-compose-dev.yml  up --build",
-    "prod": "docker compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build",
-    "stop": "docker compose -f docker-compose.yml -f docker-compose-dev.yml down && docker compose -f docker-compose.yml -f docker-compose-prod.yml down"
-  }
+    "dev": "dotenv -- turbo run dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.4.1",
+    "dotenv-cli": "7.3.0",
+    "prettier": "3.1.1",
+    "prettier-plugin-packagejson": "2.4.7",
+    "turbo": "1.11.2"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  },
+  "packageManager": "pnpm@8.12.1"
 }

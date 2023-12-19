@@ -1,3 +1,5 @@
+node_modules
+.turbo
 data
 yarn-debug.log*
 yarn-error.log*

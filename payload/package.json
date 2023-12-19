@@ -1,28 +1,33 @@
 {
-  "name": "astroad",
-  "description": "Astroad - Payload",
-  "version": "1.1",
+  "name": "payload",
+  "description": "A blank template to get started with Payload",
+  "version": "1.0.0",
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
-    "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts node -r tsconfig-paths/register node_modules/payload/dist/bin/index.js build",
+    "dev": "PAYLOAD_CONFIG_PATH=src/payload.config.ts nodemon",
+    "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
-    "build": "yarn build:payload && yarn build:server",
-    "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js node -r tsconfig-paths/register dist/server.js",
-    "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts node -r tsconfig-paths/register node_modules/payload/dist/bin/index.js generate:types"
+    "build": "yarn copyfiles && yarn build:payload && yarn build:server",
+    "serve": "cross-env PAYLOAD_CONFIG_PATH=dist/payload.config.js NODE_ENV=production node dist/server.js",
+    "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
+    "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types"
   },
   "dependencies": {
+    "@payloadcms/bundler-webpack": "^1.0.0",
+    "@payloadcms/db-postgres": "^0.x",
+    "@payloadcms/plugin-cloud": "^2.0.0",
+    "@payloadcms/richtext-lexical": "^0.4.1",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.3.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "payload": "^1.15.6",
-    "tsconfig-paths": "^4.2.0"
+    "payload": "^2.0.0"
   },
   "devDependencies": {
-    "@types/express": "^4.17.18",
-    "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "@types/express": "^4.17.9",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.8.4"
   }
 }

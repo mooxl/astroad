@@ -1,0 +1,19 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [".env"],
+  "pipeline": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+    "dev": {
+      "cache": false,
+      "dotEnv": [".env"],
+      "persistent": true
+    },
+    "build": {
+      "outputs": ["dist/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"],
+      "cache": false
+    }
+  }
+}

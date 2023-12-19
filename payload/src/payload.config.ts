@@ -1,26 +1,27 @@
-import { buildConfig } from "payload/config";
 import path from "path";
-import Posts from "@/collections/Posts";
-import Users from "@/collections/Users";
-import Media from "@/collections/Media";
+
+import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { postgresAdapter } from "@payloadcms/db-postgres";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { buildConfig } from "payload/config";
+
+import { Posts } from "./collections/Posts";
+import { Users } from "./collections/Users";
 
 export default buildConfig({
-  serverURL: process.env.PAYLOAD_URL,
   admin: {
     user: Users.slug,
-    webpack: (config) => ({
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          "@": path.resolve(__dirname, "./"),
-        },
-      },
-    }),
+    bundler: webpackBundler(),
   },
-  collections: [Posts, Users, Media],
+  serverURL: process.env.PAYLOAD_URL,
+  editor: lexicalEditor({}),
+  collections: [Users, Posts],
   typescript: {
-    outputFile: path.resolve("/", "types.ts"),
+    outputFile: path.resolve(__dirname, "types.ts"),
   },
+  db: postgresAdapter({
+    pool: {
+      connectionString: process.env.DATABASE_URI,
+    },
+  }),
 });

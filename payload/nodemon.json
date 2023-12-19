@@ -1,5 +1,7 @@
 {
+  "$schema": "https://json.schemastore.org/nodemon.json",
   "ext": "ts",
   "ignore": ["src/types.ts"],
-  "exec": "yarn generate:types && ts-node src/server.ts"
+  "exec": "pnpm generate:types && ts-node src/server.ts -- -I",
+  "stdin": false
 }
