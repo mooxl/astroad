@@ -21,13 +21,13 @@ importers:
         specifier: 1.11.2
         version: 1.11.2
 
-  astro:
+  apps/astro:
     dependencies:
       astro:
         specifier: ^4.0.4
         version: 4.0.4
 
-  payload:
+  apps/payload:
     dependencies:
       '@payloadcms/bundler-webpack':
         specifier: ^1.0.0
