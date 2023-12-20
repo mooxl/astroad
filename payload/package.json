@@ -16,7 +16,6 @@
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.0",
     "@payloadcms/db-postgres": "^0.x",
-    "@payloadcms/plugin-cloud": "^2.0.0",
     "@payloadcms/richtext-lexical": "^0.4.1",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",

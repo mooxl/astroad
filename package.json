@@ -1,16 +1,14 @@
 {
   "name": "astroad",
-  "description": "A pre-configured setup for easy website development with Astro and Payload CMS.",
+  "description": "An pre-configured environment for convenient web development using Astro and Payload CMS, ready for deployment on your own VPS.",
   "license": "MIT",
   "version": "2.0",
   "scripts": {
-    "dev": "dotenv -- turbo run dev"
+    "dev": "docker compose up -d && dotenv -- turbo run dev"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
     "dotenv-cli": "7.3.0",
-    "prettier": "3.1.1",
-    "prettier-plugin-packagejson": "2.4.7",
     "turbo": "1.11.2"
   },
   "resolutions": {
