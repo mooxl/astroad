@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/image": "^0.17.3",
     "@astrojs/prefetch": "^0.3.0",
-    "@astrojs/sitemap": "^2.0.2",
+    "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "4.0.0",
     "astro": "^2.10.12",
     "css-select": "5.1.0",
