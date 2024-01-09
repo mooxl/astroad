@@ -1,4 +1,4 @@
-FROM node:lts-alpine as base
+FROM node:20-alpine3.18 as base
 WORKDIR /base
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
