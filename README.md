@@ -1,66 +1,81 @@
-# Astroad
+# Turborepo starter
 
-Astroad is a pre-configured setup for Astro and Payloadcms, designed to make it easy for you to start building your website. With Astroad, you'll have a complete development environment that you can run locally using Docker. This setup simplifies the testing and development of your website before deploying it to a production environment.
+This is an official starter Turborepo.
 
-## Prerequisites
+## Using this example
 
-Before getting started with Astroad, make sure you have the necessary software installed:
+Run the following command:
 
-- Docker
-- Node.js
-- Yarn
+```sh
+npx create-turbo@latest
+```
 
-## Configuration
+## What's inside?
 
-While there's no configuration necessary for local development, deployment via Github Workflows requires specific secrets and variables to be set.
+This Turborepo includes the following packages/apps:
 
-### Secrets:
+### Apps and Packages
 
-- `USER`: User on the server
-- `HOST`: IP or URL of the server
-- `KEY`: SSH KEY for connecting to the server
-- `MONGODB_PW`: Password for MongoDB
-- `MONGODB_USER`: User for MongoDB
-- `PATH`: Path where the repository resides on the server
-- `PAYLOAD_PORT`: Port at which Payload listens
-- `PAYLOAD_SECRET`: String to encrypt Payload data
-- `TOKEN`: Github Access Token for the webhook to trigger the payload.yml workflow and execute a new Astro build
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-### Variables:
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-- `ASTRO_HOST`: Hostdomain of the Frontend
-- `PAYLOAD_HOST`: Hostdomain of the CMS
-- `PAYLOAD_URL`: URL of the CMS
-- `NAME`: Name of the Container and Project
+### Utilities
 
-Please remember to set these secrets and variables in your repository settings to ensure a successful deployment through Github Workflows.
+This Turborepo has some additional tools already setup for you:
 
-Once the secrets and variables are set on GitHub, they will replace the existing ones in the `.env` file on the server during deployment. This is done by the push.yml workflow, which replaces the placeholders in the `.env` with the actual secrets and variables defined in the repository settings. Please ensure that the names of your secrets and variables match with the placeholders in the `.env` file.
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-## Getting started
+### Build
 
-To get started with Astroad, you'll need to have Docker and NPM || Yarn || PNPM installed on your machine.
+To build all apps and packages, run the following command:
 
-You have two options for getting the repository:
+```
+cd my-turborepo
+pnpm build
+```
 
-1. Use the 'Use this template' button on the Github repository. This will create a new repository in your Github account with the same directory structure and files as Astroad. After the new repository is created, you can clone it to your local machine.
-1. Alternatively, you can directly clone the Astroad repository: git clone https://github.com/mooxl/astroad.git. If you choose this option, remember to change the origin of your remote repository to a new one to avoid pushing changes directly to the Astroad repository. This can be done with the command: git remote set-url origin https://github.com/USERNAME/REPOSITORY.git where USERNAME is your username and REPOSITORY is the name of your new repository.
+### Develop
 
-Once you've cloned the repository or created your own from the template, follow these steps:
+To develop all apps and packages, run the following command:
 
-1. Change into the repository directory: `cd {newName}`
-1. Start the containers: `yarn dev`
+```
+cd my-turborepo
+pnpm dev
+```
 
-This will start up the Astro, Payloadcms and Mongo containers and make them available on your local machine. Astro will be served at http://localhost:3000 and the Payload will be available at http://localhost:3001.
+### Remote Caching
 
-## Development
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-The `docker-compose.yml` and `docker-compose-dev.yml` files includes everything you need to run the containers. The containers use the environment variables declared in the `.env` file and mounted volumes to store data persistently even after the containers are stopped and started.
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-## Deployment
+```
+cd my-turborepo
+npx turbo login
+```
 
-Deployment is handled by a Github Actions Workflow on every push. It logs into the server via SSH, pulls or clones the latest version of the repository, and runs `yarn prod`.
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-Because Astro is completely static, a content change in the CMS must trigger a new build of Astro. Therefore, there’s a `payload.yml` workflow that gets triggered by a webhook after every content change from Payload.
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-Ensure you have Traefik set up as a reverse proxy before deployment. The prod script will launch your site in a production-ready environment.
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
