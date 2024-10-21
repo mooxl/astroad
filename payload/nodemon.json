@@ -1,5 +1,0 @@
-{
-  "ext": "ts",
-  "ignore": ["src/types.ts"],
-  "exec": "yarn generate:types && ts-node src/server.ts"
-}

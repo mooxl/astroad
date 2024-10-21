@@ -1,3 +1,27 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+test-results
+playwright-report
+blob-report
+.auth
+
+# build
+dist
+
+# misc
+.DS_Store
+*.pem
+.idea
 data
-yarn-debug.log*
-yarn-error.log*
+
+# debug
+pnpm-debug.log*
+
+# turbo
+.turbo
+
+# env 
+.env.local
