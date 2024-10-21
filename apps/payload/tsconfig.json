@@ -10,11 +10,10 @@
     "rootDir": "./src",
     "jsx": "react",
     "paths": {
-      "payload/generated-types": ["./src/payload-types.ts"],
-       "@/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "types.ts"],
   "exclude": ["node_modules", "dist", "build"],
   "ts-node": {
     "transpileOnly": true,

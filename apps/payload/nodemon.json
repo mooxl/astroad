@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/nodemon.json",
   "ext": "ts",
-  "ignore": ["src/types.ts"],
+  "ignore": ["./src/types.ts"],
   "exec": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types && ts-node src/server.ts -- -I",
   "stdin": false
 }
