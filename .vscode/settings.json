@@ -1,7 +1,38 @@
 {
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.codeActionsOnSave": {
+			"quickfix.biome": "explicit",
+			"source.fixAll": "explicit",
+			"source.organizeImports.biome": "explicit",
+			"source.sortPackageJson": "explicit"
+		}
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.codeActionsOnSave": {
+			"quickfix.biome": "explicit",
+			"source.fixAll": "explicit",
+			"source.organizeImports.biome": "explicit",
+			"source.sortPackageJson": "explicit"
+		}
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.codeActionsOnSave": {
+			"quickfix.biome": "explicit",
+			"source.fixAll": "explicit",
+			"source.organizeImports.biome": "explicit",
+			"source.sortPackageJson": "explicit"
+		}
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.codeActionsOnSave": {
+			"quickfix.biome": "explicit",
+			"source.fixAll": "explicit",
+			"source.organizeImports.biome": "explicit",
+			"source.sortPackageJson": "explicit"
+		}
+	}
 }
